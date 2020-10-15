@@ -87,6 +87,7 @@ class Signup extends Component {
     
   }
   componentDidMount(){
+    console.log("here")
     this.props.logout()
   }
   on(event, elementName) {

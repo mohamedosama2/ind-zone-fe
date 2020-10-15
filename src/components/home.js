@@ -82,7 +82,7 @@ function Employees() {
                     exact
                   >
                     <span className="ml-2">
-                      <i class="fas fa-plus-square"></i>
+                      <i className="fas fa-plus-square"></i>
                     </span>
                     تسجيل الخروج
                   </NavLink>

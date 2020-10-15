@@ -13,22 +13,23 @@ function Employees() {
   const [employes, setEmployees] = useState([]);
   const [l, setL] = useState("100vh");
 
-  useEffect(async() => {
-    try{
-  const res= await Axios.get("/employees", {
+  useEffect(() => {
+    Axios.get("/employees", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
-      }})
-      if(res){
-      if(res.data){
-      setEmployees(res.data);
-      if (res.data.length > 9) setL("auto");
-      }
-    }
-  }catch(err){
-    console.log(err)
-  }
-
+      },
+    })
+      .then((res) => {
+        if (res) {
+          if (res.data) {
+            setEmployees(res.data);
+            if (res.data.length > 9) setL("auto");
+          }
+        }
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
   }, []);
 
   /* if(employes.length>9)setL('100%')
@@ -102,7 +103,7 @@ function Employees() {
                   className="  d-flex justify-content-start pr-5 pt-2 pb-2"
                 >
                   <span className="ml-2">
-                    <i class="fas fa-plus-square"></i>
+                    <i className="fas fa-plus-square"></i>
                   </span>
                   اضافه موظف
                 </NavLink>
@@ -112,7 +113,7 @@ function Employees() {
                   className="  d-flex justify-content-start pr-5 pt-2 pb-2"
                 >
                   <span className="ml-2">
-                    <i class="fas fa-plus-square"></i>
+                    <i className="fas fa-plus-square"></i>
                   </span>
                   الموظفون
                 </NavLink>
@@ -123,7 +124,7 @@ function Employees() {
                   exact
                 >
                   <span className="ml-2">
-                    <i class="fas fa-plus-square"></i>
+                    <i className="fas fa-plus-square"></i>
                   </span>
                   تسجيل الخروج
                 </NavLink>

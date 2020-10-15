@@ -106,21 +106,21 @@ export const authSignIn = (email, password) => {
 
 export const authCheckState = () => {
   return async (dispatch) => {
+    try{
     const token = localStorage.getItem("token");
     if (!token) {
       dispatch(logout());
     } else {
       const userId = localStorage.getItem("userId");
+      console.log(token)
       const res = await Axios.get("/profile", {
         headers: {
-          authorization: `Bearer ${token}`,
+          'Authorization': `Bearer ${token}`,
         },
       });
-      const data = res.data;
-      if (res.status !== 200 && res.status !== 201) {
-        dispatch(authFail(data.msg));
-      }
       dispatch(authSuccess(token, userId, res.data.role));
     }
-  };
-};
+  }catch(err){
+    console.log(err.response)
+  }
+}};

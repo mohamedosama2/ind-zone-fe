@@ -26,7 +26,7 @@ function ChangeCode(props) {
       const s = str.concat( e, d, c, b, a);
       if (!( e && d && c && b && a && password && confirmedPassword)) {
         error = (
-          <div class="alert alert-danger m-auto" role="alert">
+          <div className="alert alert-danger m-auto" role="alert">
             Fill the fields
           </div>
         );
@@ -34,13 +34,14 @@ function ChangeCode(props) {
       }
       if (password !== confirmedPassword) {
         error = (
-          <div class="alert alert-danger m-auto" role="alert">
+          <div className="alert alert-danger m-auto" role="alert">
             Not Match
           </div>
         );
         setErrr(error);
       } else {
         setErrr(null);
+        console.log(props.match.params.email,s,password)
         await Axios.post("/reset-password", {
           email: props.match.params.email,
           code: s,
@@ -50,8 +51,9 @@ function ChangeCode(props) {
       }
     } catch (err) {
       let error = (
-        <div class="alert alert-danger m-auto" role="alert">
-          {err.response.data.message}
+        <div className="alert alert-danger m-auto" role="alert">
+          
+          {err.response? err.response.data.message:"internal server error"}
         </div>
       );
       setErrr(error);

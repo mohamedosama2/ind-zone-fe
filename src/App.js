@@ -29,23 +29,12 @@ const App = (props) => {
     props.onTry();
   }, [props.onTry]);
 
-  let routes = (
-    <Switch>
-      <Route exact path="/" component={Login} />
-      <Route path="/signup" component={Signup} />
-      <Route path="/email" component={Email} />
-      <Route path="/changepasscode/:email" component={Codepass} />
-      <Route path="/verify/:email" component={Verify} />
-      <Route path="/changepass" component={Change} />
-      <Route path="/codeofsignup" component={codeofsignup} />
-      <Route path="/logout" component={Logout} />
-      <Redirect to="/" />
-    </Switch>
-  );
+  let routes =null 
   if (props.role === "admin") {
     routes = (
       <Switch>
         <Route path="/admin/dashboard" component={Dashboard} />
+        <Route path="/signup" component={Signup} />
         <Route path="/admin/empoyees" component={Employees} />
         <Route path="/verify/:email" component={Verify} />
         <Route path="/logout" component={Logout} />
@@ -56,6 +45,7 @@ const App = (props) => {
     routes = (
       <Switch>
         <Route path="/verify/:email" component={Verify} />
+        <Route path="/signup" component={Signup} />
         <Route path="/secretary" component={Secretary} />
         <Route path="/logout" component={Logout} />
         <Redirect to="/secretary" />
@@ -65,6 +55,7 @@ const App = (props) => {
     routes = (
       <Switch>
         <Route path="/verify/:email" component={Verify} />
+        <Route path="/signup" component={Signup} />
         <Route path="/technician" component={Technician} />
         <Route path="/logout" component={Logout} />
         <Redirect to="/technician" />
@@ -74,6 +65,7 @@ const App = (props) => {
     routes = (
       <Switch>
         <Route path="/verify/:email" component={Verify} />
+        <Route path="/signup" component={Signup} />
         <Route path="/treasury" component={Treasury} />
         <Route path="/logout" component={Logout} />
         <Redirect to="/treasury" />
@@ -83,6 +75,7 @@ const App = (props) => {
     routes = (
       <Switch>
         <Route path="/verify/:email" component={Verify} />
+        <Route path="/signup" component={Signup} />
         <Route path="/accountant" component={Accountant} />
         <Route path="/logout" component={Logout} />
         <Redirect to="/accountant" />
@@ -91,10 +84,25 @@ const App = (props) => {
   } else if (props.isAuth) {
     routes = (
       <Switch>
-        <Route path="/user" component={Home} />
-        <Route path="/verify/:email" component={Verify} />
+        <Route exact path="/user" component={Home} />
+        <Route path="/signup" component={Signup} />
+        <Route  exact path="/verify/:email" component={Verify} />
         <Route path="/logout" component={Logout} />
         <Redirect to="/user" />
+      </Switch>
+    );
+  }else{
+    routes=(
+      <Switch>
+        <Route exact path="/" component={Login} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/email" component={Email} />
+        <Route path="/changepasscode/:email" component={Codepass} />
+        <Route path="/verify/:email" component={Verify} />
+        <Route path="/changepass" component={Change} />
+        <Route path="/codeofsignup" component={codeofsignup} />
+        <Route path="/logout" component={Logout} />
+        <Redirect to="/" />
       </Switch>
     );
   }
