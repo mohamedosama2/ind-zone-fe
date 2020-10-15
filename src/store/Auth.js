@@ -48,8 +48,8 @@ export const authSignUp = (username, email, password, phone) => {
         if (res.status !== 200 && res.status !== 201) {
           dispatch(authFail(res.data.msg));
         } else {
-          localStorage.setItem("token", res.data.token);
-          localStorage.setItem("userId", res.data.user.id);
+         /*  localStorage.setItem("token", res.data.token);
+          localStorage.setItem("userId", res.data.user.id); */
           dispatch(
             authSuccess(res.data.token, res.data.user.id, res.data.user.role)
           );
