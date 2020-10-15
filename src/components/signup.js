@@ -117,13 +117,13 @@ class Signup extends Component {
       this.state.controls.tel.value
     );
     this.setState({done:true})
-    if (localStorage.getItem("token")) {
+    
       if(this.formRef.current){
 
       this.formRef.current.style.display = "none";
       this.verify.current.style.display = "block";
       }
-    }
+    
   }
   };
 
