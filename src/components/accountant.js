@@ -9,10 +9,8 @@ const wow = new WOW();
 wow.init();
 
 function accountant() {
-
-
   /* if(employes.length>9)setL('100%')
-   */
+   */ ////////
   return (
     <div className="container-fluid size">
       <div className="row">
@@ -62,9 +60,7 @@ function accountant() {
           </div>
         </nav>
 
-        <aside
-          className="sidebar col-2 d-none d-lg-block d-xl-block text-white"
-        >
+        <aside className="sidebar col-2 d-none d-lg-block d-xl-block text-white">
           <div className="row">
             <div className="info col-12 mt-2  d-block">
               <div className="row ">
@@ -76,16 +72,16 @@ function accountant() {
                   Dina@gmail.com
                 </p>
                 <NavLink
-                    activeStyle={{ background: "#64b5f6", width: "100%" }}
-                    to="/logout"
-                    className="  d-flex justify-content-start pr-5 pt-2 pb-2"
-                    exact
-                  >
-                    <span className="ml-2">
-                      <i class="fas fa-plus-square"></i>
-                    </span>
-                    تسجيل الخروج
-                  </NavLink>
+                  activeStyle={{ background: "#64b5f6", width: "100%" }}
+                  to="/logout"
+                  className="  d-flex justify-content-start pr-5 pt-2 pb-2"
+                  exact
+                >
+                  <span className="ml-2">
+                    <i class="fas fa-plus-square"></i>
+                  </span>
+                  تسجيل الخروج
+                </NavLink>
               </div>
             </div>
           </div>
@@ -123,7 +119,7 @@ function accountant() {
                 </div>
               </div>
             </nav>
-          <h1>Welcome TO Home for accountant </h1>
+            <h1>Welcome TO Home for accountant </h1>
           </div>
         </div>
       </div>
