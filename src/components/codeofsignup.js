@@ -14,14 +14,14 @@ class CodeSignup extends Component{
             <section className=" container loginsection  mt-5 ">
               <div className="row  ">
 
-                <div className="col-lg-6 col-md-12 mb-5 wow fadeInRight order-lg-1 order-md-2 " >
+                <div className="col-lg-6 col-md-12 mb-5 wow fadeInRight order-lg-1 order-md-2 " data-wow-delay="1s" >
                   <img src={loginimg} alt="loginimg" title="loginimg" className="img-fluid" />
                   <div className="d-flex justify-content-center">
                     <a href="/signup" className="linkStyle"></a>
                   </div>
                 </div>
 
-                <div className="col-lg-6 col-md-12 mb-5 mt-5 order-lg-2 order-md-1 wow fadeInLeft pt-5 ">
+                <div className="col-lg-6 col-md-12 mb-5 mt-5 order-lg-2 order-md-1 wow fadeInLeft pt-5 " data-wow-delay="1s">
 
                   <p className="colortext d-flex justify-content-start">تم ارسال رمز التحقيق على الايميل الخاص بك</p>
                   
