@@ -199,12 +199,7 @@ class Signup extends Component {
                     touched={this.state.controls.email.touched}
                     elementConfig={this.state.controls.email.elementConfig}
                   />
-                  {/*  <input
-                    type="text"
-                    className=" form-control "
-                    id="name"
-                    placeholder="اسم المستخدم"
-                  /> */}
+                 
                 </div>
 
                 <div className="form-group  mr-lg-5 mr-md-0 mb-4 d-flex">
