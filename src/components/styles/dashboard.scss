@@ -29,14 +29,26 @@ div{
     nav{
         font-family: 'Markazi Text', serif;
         height: 70px;
-        &.navbar{
+        &.small-screen{
             background-color: #6DABE4;
+        }
+        &.navbar{
+            // background-color: #6DABE4;
             height: 80px;
+            .navbar-brand{
+                color: #6DABE4;
+            }
             .navbar-nav{
                 background-color: #6DABE4;
                 position: relative;
                 z-index: 1;
                 font-size: 18px;
+               
+            }
+            .socail-icon{
+                .text-color{
+                    color: #6DABE4;
+                }
             }
             img{
               border-radius: 50px; 
@@ -63,7 +75,7 @@ div{
                     position: absolute;
                     top:10px;
                     right: 19px;
-                    color: black;
+                    color: #6DABE4;
                 }
                
             }
@@ -177,3 +189,7 @@ div{
     }
 }
 }
+.card{
+.icon{
+    color: #6DABE4;
+}}
