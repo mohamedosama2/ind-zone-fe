@@ -1,0 +1,65 @@
+div{
+    nav{
+            width: 100%;
+            height: 80px;
+        &.navbar-light {
+            background-color: #636363;
+            .navbar-brand{
+              
+                img{
+                    width: 90px;
+                }
+              
+            }
+            .navbar-nav{
+                background-color: #636363;
+                // width: 100%;
+                position: relative;
+                z-index: 1;
+                text-align: center;
+                .nav-link{
+                    color: rgba(255, 255, 255,1);
+                    &:hover{
+                        color: rgba(255, 255, 255,1);
+                    }
+                }
+                .dropdown-menu{
+                    margin: 0 auto;
+                .dropdown-item{
+                    color: rgb(0, 0, 0);
+                }
+            }
+            }
+            .navbar-text{
+                font-size: 11px;
+                #search{
+                    display: none;
+                }
+               .rounded-circle{
+                   padding: 3px 5px;
+                   cursor: pointer;
+               }
+            }
+        }
+    }
+    section{
+        &.paper{
+            margin-top: 100px;
+            height: 2000px;
+            h2{
+                font-family: 'Amiri', serif;
+                color:black;
+            }
+            ol{
+                direction: ltr;
+                li{
+                    font-family: 'Markazi Text', serif;
+                    font-size: 25px;
+                    color: black;
+                    
+                }
+            }
+        }
+    }
+    
+}

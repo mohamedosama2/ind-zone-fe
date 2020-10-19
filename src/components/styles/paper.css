@@ -1,0 +1,56 @@
+div nav {
+  width: 100%;
+  height: 80px;
+}
+div nav.navbar-light {
+  background-color: #636363;
+}
+div nav.navbar-light .navbar-brand img {
+  width: 90px;
+}
+div nav.navbar-light .navbar-nav {
+  background-color: #636363;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+div nav.navbar-light .navbar-nav .nav-link {
+  color: white;
+}
+div nav.navbar-light .navbar-nav .nav-link:hover {
+  color: white;
+}
+div nav.navbar-light .navbar-nav .dropdown-menu {
+  margin: 0 auto;
+}
+div nav.navbar-light .navbar-nav .dropdown-menu .dropdown-item {
+  color: black;
+}
+div nav.navbar-light .navbar-text {
+  font-size: 11px;
+}
+div nav.navbar-light .navbar-text #search {
+  display: none;
+}
+div nav.navbar-light .navbar-text .rounded-circle {
+  padding: 3px 5px;
+  cursor: pointer;
+}
+div section.paper {
+  margin-top: 100px;
+  height: 2000px;
+}
+div section.paper h2 {
+  font-family: "Amiri", serif;
+  color: black;
+}
+div section.paper ol {
+  direction: ltr;
+}
+div section.paper ol li {
+  font-family: "Markazi Text", serif;
+  font-size: 25px;
+  color: black;
+}
+
+/*# sourceMappingURL=paper.css.map */

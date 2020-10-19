@@ -18,6 +18,7 @@ import Accountant from "./components/accountant";
 import Secretary from "./components/secretary";
 import Treasury from "./components/treasury";
 import Technician from "./components/technician";
+import Paper from "./components/paper";
 import "./App.css";
 import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
@@ -30,6 +31,8 @@ const App = (props) => {
   }, [props.onTry]);
 
   let routes =null 
+ 
+
   if (props.role === "admin") {
     routes = (
       <Switch>
@@ -88,8 +91,11 @@ const App = (props) => {
         <Route path="/signup" component={Signup} />
         <Route  exact path="/verify/:email" component={Verify} />
         <Route path="/logout" component={Logout} />
+        <Route path="/paper" component={Paper} />
         <Redirect to="/user" />
+        
       </Switch>
+     
     );
   }else{
     routes=(
@@ -106,10 +112,12 @@ const App = (props) => {
       </Switch>
     );
   }
+
   return (
     <>
       <main>{routes} </main>
     </>
+    
   );
 };
 const mapStateToProps = (state) => {
