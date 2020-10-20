@@ -2,14 +2,10 @@ div nav {
   width: 100%;
   height: 80px;
 }
-div nav.navbar-light {
-  background-color: #636363;
-}
 div nav.navbar-light .navbar-brand img {
   width: 90px;
 }
 div nav.navbar-light .navbar-nav {
-  background-color: #636363;
   position: relative;
   z-index: 1;
   text-align: center;
@@ -38,14 +34,19 @@ div nav.navbar-light .navbar-text .rounded-circle {
 }
 div section.paper {
   margin-top: 100px;
-  height: 2000px;
 }
 div section.paper h2 {
   font-family: "Amiri", serif;
   color: black;
 }
 div section.paper ol {
-  direction: ltr;
+  list-style-type: arabic-indic;
+  direction: RTL;
+  text-align: right;
+}
+div section.paper ol span {
+  font-size: 20px;
+  font-family: "Amiri", serif;
 }
 div section.paper ol li {
   font-family: "Markazi Text", serif;

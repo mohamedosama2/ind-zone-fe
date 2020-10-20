@@ -1,0 +1,29 @@
+.preview{
+    p{
+        list-style-type:arabic-indic;
+                    direction:RTL; text-align: right;
+                    font-family: 'Amiri', serif;
+                    font-size: 18px;
+                    &.text-style{
+                        text-decoration: underline;
+                        text-align: center;
+                        font-size: 25px;
+                    }
+    }
+    .img-fluid{
+        width: 90px;
+    }
+    hr{
+        border: 1px solid #000000;
+    }
+    .icon{
+        color:  #6DABE4;
+        font-size: 20px;
+        cursor: pointer;
+        @media print {
+         
+              display: none;
+            
+          }
+    }
+}

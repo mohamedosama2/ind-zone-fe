@@ -6,6 +6,9 @@ div.home-bg {
   background-size: cover;
   background-position: center center;
 }
+div.home-bg nav {
+  background-color: transparent;
+}
 div.home-bg nav.navbar-light .navbar-brand img {
   width: 90px;
 }

@@ -304,6 +304,17 @@ class Dashboard extends Component {
                   </NavLink>
                   <NavLink
                     activeStyle={{ background: "#64b5f6", width: "100%" }}
+                    to="/admin/order"
+                    className="  d-flex justify-content-start pr-5 pt-2 pb-2 text-white"
+                    exact
+                  >
+                    <span className="ml-2">
+                    <i className="fas fa-users"></i>
+                    </span>
+                   عرض الطلبات
+                  </NavLink>
+                  <NavLink
+                    activeStyle={{ background: "#64b5f6", width: "100%" }}
                     to="/logout"
                     className="  d-flex justify-content-start pr-5 pt-2 pb-2 text-white"
                     exact
@@ -351,7 +362,7 @@ class Dashboard extends Component {
                 </div>
               </nav>
 
-              <section className="add col-12 p-5">
+              <section className="add col-12 mt-4 p-5">
                 <h4>إضافة موظف</h4>
                 {this.state.error}
                 <form className=" mr-5 mt-5 ">

@@ -154,6 +154,9 @@ div.size .add form .form-group .form-control:focus, div.size .add form .form-gro
   transition: all 0.25s ease-in-out;
 }
 
+.card p.text-color {
+  color: #6DABE4;
+}
 .card .icon {
   color: #6DABE4;
 }

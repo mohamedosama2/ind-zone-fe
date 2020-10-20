@@ -42,7 +42,7 @@ function Employees() {
             <div className="d-flex">
               <div className="row">
                 <div className="img col-md-3  mt-2  d-block">
-                  <img src={img}  alt="email"/>
+                  <img src={img} alt="email-img" title="email-img" />
                   <p className="">دينا سمير</p>
                 </div>
               </div>
@@ -102,7 +102,7 @@ function Employees() {
             <div className="row">
               <div className="info col-12 mt-2  d-block">
                 <div className="row ">
-                  <img src={img} className=" img-fluid  mt-5 mr-5" alt="email"/>
+                  <img src={img} className=" img-fluid  mt-5 mr-5" alt="email-img" title="email-img"/>
                   <p className=" mt-3 col-10 d-flex justify-content-center">
                     دينا سمير
                   </p>
@@ -194,33 +194,70 @@ function Employees() {
                 </div>
               </nav>
               <section className="col-12 mt-3">
-              {employes.map((em) => {
-                return (
-                  <div className="mx-auto">
-                  <div className="card  mb-3"  key={em.id}>
-                      <div className="card-body col-lg-12   col-md-6  ">
-                        <div className="row">
-                      <h5 className="card-title col-lg-3 col-md-6">{em.username}</h5>
-                      <p className="card-text col-lg-2 col-md-6">{em.role}</p>
-                    {/* </div> */}
-                    {/* <div className="card-body p- col-lg-8  col-sm-12"> */}
-                      <a href="true" className="card-link col-lg-3 col-md-6 text-dark">
-                        {em.email}
-                      </a>
-                      <p className="card-link col-lg-2 col-md-6">
-                        {em.phone}
-                      </p>
-                      <span className="icon"><i className="fas fa-trash"></i></span>
+              
+
+                  
+              <div className="card  mb-3 col-lg-6 col-md-12 mx-auto"  >
+                      <div className="card-body col-lg-12      ">
+                        <div className="row px-5">
+                       <p> احمد محمد محمود</p>
+                       <p className="text-color mr-5 col-lg-5 col-md-10">نموذج طلب</p>
+                      
+                       <a className="icon mr-5" href="/Project" target="_blank"><i className="fas fa-eye"></i></a>
                       </div>
                     </div>
                     </div>
+                        
+                  <div className="card  mb-3 col-lg-6 col-md-12 mx-auto"  >
+                      <div className="card-body col-lg-12      ">
+                        <div className="row px-5">
+                       <p> احمد محمد محمود</p>
+                       <p className="text-color mr-5 col-lg-5 col-md-10">نموذج إقامه مشروع</p>
+                      
+                       <a className="icon mr-5" href="/Project" target="_blank"><i className="fas fa-eye"></i></a>
+                      </div>
                     </div>
-                  
-                );
-                     })}
+                    </div>
+                        
+                  <div className="card  mb-3 col-lg-6 col-md-12 mx-auto"  >
+                      <div className="card-body col-lg-12      ">
+                        <div className="row px-5">
+                       <p> احمد محمد محمود</p>
+                       <p className="text-color mr-5 col-lg-5 col-md-10">نموذج معاينه</p>
+                      
+                      <a className="icon mr-5" href="/Preview" target="_blank"><i className="fas fa-eye"></i></a>
+                      </div>
+                    </div>
+                    </div>
+                        
+                  <div className="card  mb-3 col-lg-6 col-md-12 mx-auto"  >
+                      <div className="card-body col-lg-12      ">
+                        <div className="row px-5">
+                       <p> احمد محمد محمود</p>
+                       <p className="text-color mr-5 col-lg-5 col-md-10">نموذج متابعة</p>
+                      
+                       <a className="icon mr-5" href="/Follow" target="_blank"><i className="fas fa-eye"></i></a>
+                      </div>
+                    </div>
+                    </div>
+                        
+                  <div className="card  mb-3 col-lg-6 col-md-12 mx-auto"  >
+                      <div className="card-body     ">
+                        <div className="row px-5">
+                       <p> احمد محمد محمود</p>
+                       <p className="text-color mr-5 col-lg-5 col-md-10">نموذج مخلفات</p>
+                      
+ 
+                       <a className="icon mr-5" href="/Residues" target="_blank"><i className="fas fa-eye"></i></a>                      </div>
+                    </div>
+                    
+                    </div>
+                   
+             
                      <div className="number d-flex justify-content-center mt-3 ">
                        1 2 3 ...  <a href="true" >التالى</a> 
                      </div>
+
               </section>
                
           </div>

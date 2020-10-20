@@ -12,6 +12,11 @@ import codeofsignup from "./components/codeofsignup";
 import Dashboard from "./components/dashboard";
 import Verify from "./components/verifycode";
 import Employees from "./components/employees";
+import Order from "./components/order";
+import Preview from "./components/Previeworder"
+import Residues from "./components/Residues";
+import Follow from "./components/Follow";
+import Project from "./components/project";
 import Home from "./components/home";
 import Logout from "./components/Logout/Logout";
 import Accountant from "./components/accountant";
@@ -19,6 +24,11 @@ import Secretary from "./components/secretary";
 import Treasury from "./components/treasury";
 import Technician from "./components/technician";
 import Paper from "./components/paper";
+import FirstModel5 from "./components/firstpagemodel5";
+import Secondmodel5 from "./components/secondpagemodel5";
+import Model2 from "./components/model2";
+import Model4 from "./components/model4";
+import Model3 from "./components/model3"
 import "./App.css";
 import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
@@ -39,11 +49,17 @@ const App = (props) => {
         <Route path="/admin/dashboard" component={Dashboard} />
         <Route path="/signup" component={Signup} />
         <Route path="/admin/empoyees" component={Employees} />
+        <Route path="/admin/order" component={Order} />
+        <Route path="/Preview" component={Preview}/>
+        <Route path="/Residues" component={Residues}/>
+        <Route path="/Follow" component={Follow}/>
+        <Route path="/Project" component={Project}/>
         <Route path="/verify/:email" component={Verify} />
         <Route path="/logout" component={Logout} />
         <Redirect to="/admin/dashboard" />
       </Switch>
     );
+   
   } else if (props.role === "secretary") {
     routes = (
       <Switch>
@@ -88,11 +104,18 @@ const App = (props) => {
     routes = (
       <Switch>
         <Route exact path="/user" component={Home} />
+        <Route path="/paper" component={Paper} />
+        <Route path="/model2" component={Model2} />
+        <Route path="/model3" component={Model3} />
+        <Route path="/model4" component={Model4} />
+        <Route path="/model5" component={FirstModel5} />
+        <Route path="/secondpagemodel5" component={Secondmodel5} />
         <Route path="/signup" component={Signup} />
         <Route  exact path="/verify/:email" component={Verify} />
         <Route path="/logout" component={Logout} />
-        <Route path="/paper" component={Paper} />
+      
         <Redirect to="/user" />
+    
         
       </Switch>
      
@@ -101,6 +124,16 @@ const App = (props) => {
     routes=(
       <Switch>
         <Route exact path="/" component={Login} />
+        <Route path="/paper" component={Paper} />
+        <Route path="/model2" component={Model2} />
+        <Route path="/model3" component={Model3} />
+        <Route path="/model4" component={Model4} />
+        <Route path="/model5" component={FirstModel5} />
+        <Route path="/secondpagemodel5" component={Secondmodel5} />
+        <Route path="/Preview" component={Preview}/>
+        <Route path="/Residues" component={Residues}/>
+        <Route path="/Follow" component={Follow}/>
+        <Route path="/Project" component={Project}/>
         <Route path="/signup" component={Signup} />
         <Route path="/email" component={Email} />
         <Route path="/changepasscode/:email" component={Codepass} />

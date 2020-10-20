@@ -86,7 +86,7 @@ class Login extends Component {
         <section className=" container loginsection  mt-5 ">
         
           <div className="row  ">
-            <div className="col-lg-6 col-md-12 mb-5 wow fadeInRight order-lg-1 order-md-2 ">
+            <div className="col-lg-6 col-md-12 mb-5 wow fadeInRight order-lg-1 order-md-2 " data-wow-delay="1s">
            
               <img
                 src={img}
@@ -101,7 +101,7 @@ class Login extends Component {
               </div>
             </div>
 
-            <div className="col-lg-6 col-md-12 mb-5 mt-5 order-lg-2 order-md-1 wow fadeInLeft">
+            <div className="col-lg-6 col-md-12 mb-5 mt-5 order-lg-2 order-md-1 wow fadeInLeft" data-wow-delay="1s">
               <form className=" mr-5 mt-5 ">
               {error}
                 <div className="text d-flex justify-content-start mt-5 mr-lg-5 mr-md-0">

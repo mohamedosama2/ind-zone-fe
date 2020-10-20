@@ -190,6 +190,11 @@ div{
 }
 }
 .card{
+    p{
+        &.text-color{
+            color: #6DABE4;
+        }
+    }
 .icon{
     color: #6DABE4;
 }}
