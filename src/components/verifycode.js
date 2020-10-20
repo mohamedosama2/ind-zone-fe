@@ -27,17 +27,15 @@ function ChangeCode(props) {
         email: props.match.params.email,
         code: s,
       });
-      console.log(res)
-      localStorage.setItem("token",res.data.token);
-      localStorage.setItem("userId",res.data.user.id);
-
+      console.log(res);
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("userId", res.data.user.id);
 
       props.history.push("/");
     } catch (err) {
       let error = (
         <div class="alert alert-danger m-auto" role="alert">
-          
-          {err.response ? err.response.data.message:"internal server error"}
+          {err.response ? err.response.data.message : "internal server error"}
         </div>
       );
       setErrr(error);
@@ -56,7 +54,9 @@ function ChangeCode(props) {
               className="img-fluid"
             />
             <div className="d-flex justify-content-center">
-              <a href="/signup" className="linkStyle"></a>
+              <a href="/signup" className="linkStyle">
+                Arwaa
+              </a>
             </div>
           </div>
 
@@ -104,12 +104,12 @@ function ChangeCode(props) {
                   />
                 </div>
                 <a
-                  href="#"
+                  href
                   className="colortext d-flex justify-content-start mt-1"
-                  onClick={async()=>{
-                   await Axios.post('/resend',{
-                    email:props.match.params.email
-                   })
+                  onClick={async () => {
+                    await Axios.post("/resend", {
+                      email: props.match.params.email,
+                    });
                   }}
                 >
                   ارسال مره اخرى ؟

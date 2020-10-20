@@ -68,7 +68,10 @@ class ChangePassEmail extends React.Component {
       <div>
         <section className=" container loginsection  mt-5 ">
           <div className="row  ">
-            <div className="col-lg-6 col-md-12 mb-5 wow fadeInRight order-lg-1 order-md-2 " data-wow-delay="1s">
+            <div
+              className="col-lg-6 col-md-12 mb-5 wow fadeInRight order-lg-1 order-md-2 "
+              data-wow-delay="1s"
+            >
               <img
                 src={loginimg}
                 alt="loginimg"
@@ -76,11 +79,16 @@ class ChangePassEmail extends React.Component {
                 className="img-fluid"
               />
               <div className="d-flex justify-content-center">
-                <a href="/signup" className="linkStyle"></a>
+                <a href="/signup" className="linkStyle">
+                  Arwaa
+                </a>
               </div>
             </div>
 
-            <div className="col-lg-6 col-md-12 mb-5 mt-5 order-lg-2 order-md-1 wow fadeInLeft" data-wow-delay="1s">
+            <div
+              className="col-lg-6 col-md-12 mb-5 mt-5 order-lg-2 order-md-1 wow fadeInLeft"
+              data-wow-delay="1s"
+            >
               <div
                 class="alert alert-danger m-auto text-center"
                 role="alert"
@@ -120,7 +128,7 @@ class ChangePassEmail extends React.Component {
                 </div>
 
                 <div className="d-flex justify-content-center mt-3  mr-5">
-                  <a className="btn btn-color px-4 " onClick={this.send}>
+                  <a className="btn btn-color px-4 " onClick={this.send} href>
                     متابعه{" "}
                   </a>
                 </div>

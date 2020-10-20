@@ -9,8 +9,6 @@ const wow = new WOW();
 wow.init();
 
 function treasury() {
-
-
   /* if(employes.length>9)setL('100%')
    */
   return (
@@ -21,11 +19,13 @@ function treasury() {
           <div className="d-flex">
             <div className="row">
               <div className="img col-md-3  mt-2  d-block">
-                <img src={img} />
+                <img alt="AAA" src={img} />
                 <p className="">دينا سمير</p>
               </div>
             </div>
-            <a className="navbar-brand text-white mt-1 ml-5">لوحه التحكم</a>
+            <a className="navbar-brand text-white mt-1 ml-5" href>
+              لوحه التحكم
+            </a>
             <button
               className="navbar-toggler "
               type="button"
@@ -41,7 +41,7 @@ function treasury() {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0 p-5 ">
               <li className="nav-item active">
-                <a className="nav-link ml-5 text-white" href="#">
+                <a className="nav-link ml-5 text-white" href>
                   اضافه موظف{" "}
                 </a>
               </li>
@@ -62,13 +62,15 @@ function treasury() {
           </div>
         </nav>
 
-        <aside
-          className="sidebar col-2 d-none d-lg-block d-xl-block text-white"
-        >
+        <aside className="sidebar col-2 d-none d-lg-block d-xl-block text-white">
           <div className="row">
             <div className="info col-12 mt-2  d-block">
               <div className="row ">
-                <img src={img} className=" img-fluid  mt-5 mr-5"></img>
+                <img
+                  alt="AAA"
+                  src={img}
+                  className=" img-fluid  mt-5 mr-5"
+                ></img>
                 <p className=" mt-3 col-10 d-flex justify-content-center">
                   دينا سمير
                 </p>
@@ -76,16 +78,16 @@ function treasury() {
                   Dina@gmail.com
                 </p>
                 <NavLink
-                    activeStyle={{ background: "#64b5f6", width: "100%" }}
-                    to="/logout"
-                    className="  d-flex justify-content-start pr-5 pt-2 pb-2"
-                    exact
-                  >
-                    <span className="ml-2">
-                      <i class="fas fa-plus-square"></i>
-                    </span>
-                    تسجيل الخروج
-                  </NavLink>
+                  activeStyle={{ background: "#64b5f6", width: "100%" }}
+                  to="/logout"
+                  className="  d-flex justify-content-start pr-5 pt-2 pb-2"
+                  exact
+                >
+                  <span className="ml-2">
+                    <i class="fas fa-plus-square"></i>
+                  </span>
+                  تسجيل الخروج
+                </NavLink>
               </div>
             </div>
           </div>
@@ -95,7 +97,9 @@ function treasury() {
           <div className="row">
             <nav className="navbar navbar-light col-12 align-items-start pt-3 px-5 d-none d-lg-block d-xl-block">
               <div className="d-flex">
-                <a className="navbar-brand text-white">لوحه التحكم</a>
+                <a className="navbar-brand text-white" href>
+                  لوحه التحكم
+                </a>
                 <form className="d-flex ml-auto mr-5 ">
                   <span className="icon">
                     <i className="fas fa-search"></i>
@@ -123,7 +127,7 @@ function treasury() {
                 </div>
               </div>
             </nav>
-          <h1>Welcome TO Home for treasury </h1>
+            <h1>Welcome TO Home for treasury </h1>
           </div>
         </div>
       </div>

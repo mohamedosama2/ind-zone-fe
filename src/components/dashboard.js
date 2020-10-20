@@ -7,7 +7,7 @@ import { WOW } from "wowjs";
 import Input from "./Input/Input";
 import { updatedObject, checkValidity } from "../shared/shared";
 import Axios from "../axios";
-import WithErrorHandler from "./withErrorHandler/withErrorHandler";
+// import WithErrorHandler from "./withErrorHandler/withErrorHandler";
 import { NavLink } from "react-router-dom";
 const wow = new WOW();
 wow.init();
@@ -210,11 +210,13 @@ class Dashboard extends Component {
             <div className="d-flex">
               <div className="row">
                 <div className="img col-md-3  mt-2  d-block">
-                  <img src={img} />
+                  <img alt="admin-img" src={img} />
                   <p className="">دينا سمير</p>
                 </div>
               </div>
-              <a className="navbar-brand text-white mt-1 ml-5">لوحه التحكم</a>
+              <a href className="navbar-brand text-white mt-1 ml-5">
+                لوحه التحكم
+              </a>
               <button
                 className="navbar-toggler "
                 type="button"
@@ -230,22 +232,22 @@ class Dashboard extends Component {
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul className="navbar-nav mr-auto mt-2 mt-lg-0 p-5 ">
                 <li className="nav-item active">
-                  <a className="nav-NavLink ml-5 text-white" href="#">
+                  <a className="nav-NavLink ml-5 text-white" href>
                     اضافه موظف{" "}
                   </a>
-                  </li>
-                  <li className="nav-item ">
-                  <a className="nav-NavLink ml-5 text-white" href="#">
+                </li>
+                <li className="nav-item ">
+                  <a className="nav-NavLink ml-5 text-white" href>
                     عرض الموظفون
                   </a>
-                  </li>
-                  <li className="nav-item ">
-                  <a className="nav-NavLink ml-5 text-white" href="#">
+                </li>
+                <li className="nav-item ">
+                  <a className="nav-NavLink ml-5 text-white" href>
                     عرض الطلبات
                   </a>
-                  </li>
-                  <li className="nav-item ">
-                  <a className="nav-NavLink ml-5 text-white" href="#">
+                </li>
+                <li className="nav-item ">
+                  <a className="nav-NavLink ml-5 text-white" href>
                     تسجيل الخروج
                   </a>
                 </li>
@@ -270,7 +272,11 @@ class Dashboard extends Component {
             <div className="row">
               <div className="info col-12 mt-2  d-block">
                 <div className="row ">
-                  <img src={img} className=" img-fluid  mt-5 mr-5"></img>
+                  <img
+                    alt="dina"
+                    src={img}
+                    className=" img-fluid  mt-5 mr-5"
+                  ></img>
                   <p className=" mt-3 col-10 d-flex justify-content-center">
                     دينا سمير
                   </p>
@@ -278,9 +284,10 @@ class Dashboard extends Component {
                     Dina@gmail.com
                   </p>
                   <NavLink
-                    activeStyle={{ 
-                      background: "#64b5f6", 
-                      width: "100%" }}
+                    activeStyle={{
+                      background: "#64b5f6",
+                      width: "100%",
+                    }}
                     to="/admin/dashboard"
                     className="  d-flex justify-content-start pr-5 pt-2 pb-2 text-white"
                     exact
@@ -298,9 +305,9 @@ class Dashboard extends Component {
                     exact
                   >
                     <span className="ml-2">
-                    <i className="fas fa-users"></i>
+                      <i className="fas fa-users"></i>
                     </span>
-                   عرض الموظفون
+                    عرض الموظفون
                   </NavLink>
                   <NavLink
                     activeStyle={{ background: "#64b5f6", width: "100%" }}
@@ -309,7 +316,7 @@ class Dashboard extends Component {
                     exact
                   >
                     <span className="ml-2">
-                    <i className="fas fa-sign-out-alt"></i>
+                      <i className="fas fa-sign-out-alt"></i>
                     </span>
                     تسجيل الخروج
                   </NavLink>
@@ -322,7 +329,9 @@ class Dashboard extends Component {
             <div className="row">
               <nav className="navbar navbar-light col-12 align-items-start pt-3 px-5 d-none d-lg-block d-xl-block">
                 <div className="d-flex">
-                  <a className="navbar-brand ">لوحه التحكم</a>
+                  <a className="navbar-brand " href>
+                    لوحه التحكم
+                  </a>
                   <form className="d-flex ml-auto mr-5 ">
                     <span className="icon">
                       <i className="fas fa-search"></i>
@@ -386,7 +395,7 @@ class Dashboard extends Component {
                       />
                     </div>
                     <div className="form-group col-lg-6 col-md-12  date  mb-4 d-flex">
-                      <Input 
+                      <Input
                         inValid={!this.state.controls.date.valid}
                         changed={(e) => this.on(e, "date")}
                         value={this.state.controls.date.value}
