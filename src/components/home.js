@@ -1,14 +1,11 @@
 import React from "react";
-import "./styles/home.css"
+import "./styles/home.css";
 import img from "../2.png";
 import "../fontawesome-free-5.9.0-web/css/all.css";
 import "../WOW-master/css/libs/animate.css";
-import {
-  WOW
-} from "wowjs";
-import {
-  NavLink
-} from "react-router-dom";
+
+import {WOW} from "wowjs";
+import {NavLink} from "react-router-dom";
 import $ from 'jquery';
 const wow = new WOW();
 wow.init();
@@ -19,6 +16,7 @@ function Employees() {
       $("#search").addClass("animated fadeInLeft").toggle();
     });
   });
+
   return (
       <div className="container-fluid p-0">
         <div className="home-bg">
@@ -78,6 +76,9 @@ function Employees() {
 
         </div>
       </div>
+
+
+ 
   );
 }
 
