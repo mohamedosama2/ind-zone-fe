@@ -362,7 +362,7 @@ class Dashboard extends Component {
                   <p className="">دينا سمير</p>
                 </div>
               </div>
-              <a href className="navbar-brand text-white mt-1 ml-5">
+              <a href="true" className="navbar-brand text-white mt-1 ml-5">
                 لوحه التحكم
               </a>
               <button
@@ -380,22 +380,22 @@ class Dashboard extends Component {
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul className="navbar-nav mr-auto mt-2 mt-lg-0 p-5 ">
                 <li className="nav-item active">
-                  <a className="nav-NavLink ml-5 text-white" href>
+                  <a className="nav-NavLink ml-5 text-white" href="true">
                     اضافه موظف{" "}
                   </a>
                 </li>
                 <li className="nav-item ">
-                  <a className="nav-NavLink ml-5 text-white" href>
+                  <a className="nav-NavLink ml-5 text-white" href="true">
                     عرض الموظفون
                   </a>
                 </li>
                 <li className="nav-item ">
-                  <a className="nav-NavLink ml-5 text-white" href>
+                  <a className="nav-NavLink ml-5 text-white" href="true">
                     عرض الطلبات
                   </a>
                 </li>
                 <li className="nav-item ">
-                  <a className="nav-NavLink ml-5 text-white" href>
+                  <a className="nav-NavLink ml-5 text-white" href="true">
                     تسجيل الخروج
                   </a>
                 </li>
@@ -488,7 +488,7 @@ class Dashboard extends Component {
             <div className="row">
               <nav className="navbar navbar-light col-12 align-items-start pt-3 px-5 d-none d-lg-block d-xl-block">
                 <div className="d-flex">
-                  <a className="navbar-brand " href>
+                  <a className="navbar-brand " href="true">
                     لوحه التحكم
                   </a>
                   <form className="d-flex ml-auto mr-5 ">

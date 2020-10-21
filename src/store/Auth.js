@@ -45,10 +45,11 @@ export const authSignUp = (username, email, password, phone) => {
           password,
           phone,
         });
+        console.log(phone && username && email && password)
         if (res.status !== 200 && res.status !== 201) {
           dispatch(authFail(res.data.msg));
         } else {
-         /*  localStorage.setItem("token", res.data.token);
+          /*  localStorage.setItem("token", res.data.token);
           localStorage.setItem("userId", res.data.user.id); */
           dispatch(
             authSuccess(res.data.token, res.data.user.id, res.data.user.role)
@@ -106,21 +107,21 @@ export const authSignIn = (email, password) => {
 
 export const authCheckState = () => {
   return async (dispatch) => {
-    try{
-    const token = localStorage.getItem("token");
-    if (!token) {
-      dispatch(logout());
-    } else {
-      const userId = localStorage.getItem("userId");
-      console.log(token)
-      const res = await Axios.get("/profile", {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
-      });
-      dispatch(authSuccess(token, userId, res.data.role));
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        dispatch(logout());
+      } else {
+        const userId = localStorage.getItem("userId");
+        const res = await Axios.get("/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        dispatch(authSuccess(token, userId, res.data.role));
+      }
+    } catch (err) {
+      console.log(err.response);
     }
-  }catch(err){
-    console.log(err.response)
-  }
-}};
+  };
+};

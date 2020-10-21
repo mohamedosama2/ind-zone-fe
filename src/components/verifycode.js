@@ -107,7 +107,7 @@ function ChangeCode(props) {
                   />
                 </div>
                 <a
-                  href
+                  href="true"
                   className="colortext d-flex justify-content-start mt-1"
                   onClick={async () => {
                     await Axios.post("/resend", {

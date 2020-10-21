@@ -38,7 +38,7 @@ import * as actions from "./store/index";
 const App = (props) => {
   useEffect(() => {
     props.onTry();
-  }, [props.onTry]);
+  }, [props]);
 
   let routes = null;
 
@@ -49,10 +49,10 @@ const App = (props) => {
         <Route path="/signup" component={Signup} />
         <Route path="/admin/empoyees" component={Employees} />
         <Route path="/admin/order" component={Order} />
-        <Route path="/Preview" component={Preview} />
-        <Route path="/Residues" component={Residues} />
-        <Route path="/Follow" component={Follow} />
-        <Route path="/Project" component={Project} />
+        <Route path="/Preview/:id" exact component={Preview} />
+        <Route path="/Residues/:id" exact component={Residues} />
+        <Route path="/Follow/:id" exact component={Follow} />
+        <Route path="/Project/:id" exact component={Project} />
         <Route path="/verify/:email" component={Verify} />
         <Route path="/logout" component={Logout} />
 

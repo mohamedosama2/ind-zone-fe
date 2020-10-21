@@ -34,9 +34,27 @@ function Employees() {
       });
   }, []);
 
+
+const del=async(id)=>{
+  try{
+    let e;
+    e=  employes.filter(em=>{
+      return em.id !==id
+    })
+    setEmployees(e)  
+            await Axios.delete(`/employees/${id}`,{
+              headers:{
+                'Authorization':`Bearer ${localStorage.getItem('token')}`
+              }
+            })
+  }catch(err){
+    console.log(err.response)
+  }
+}
+
   let body = employes.map((em) => {
     return (
-      <div className="mx-auto">
+      <div className="mx-auto" key={em.id}>
         <div className="card  mb-3" key={em.id}>
           <div className="card-body col-lg-12   col-md-6  ">
             <div className="row">
@@ -48,7 +66,7 @@ function Employees() {
                 {em.email}
               </a>
               <p className="card-link col-lg-2 col-md-6">{em.phone}</p>
-              <span className="icon">
+              <span className="icon" style={{cursor:'pointer'}} onClick={()=>del(em.id)} >
                 <i className="fas fa-trash"></i>
               </span>
             </div>
@@ -57,8 +75,8 @@ function Employees() {
       </div>
     );
   });
-  if(loading){
-    body=<Spiner />
+  if (loading) {
+    body = <Spiner />;
   }
 
   var a = document.querySelector(".spinner-wrapper");
@@ -77,7 +95,7 @@ function Employees() {
                 <p className="">دينا سمير</p>
               </div>
             </div>
-            <a href className="navbar-brand text-white mt-1 ml-5">
+            <a href="true" className="navbar-brand text-white mt-1 ml-5">
               لوحه التحكم
             </a>
             <button
@@ -95,22 +113,22 @@ function Employees() {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0 p-5 ">
               <li className="nav-item active">
-                <a className="nav-NavLink ml-5 text-white" href>
+                <a className="nav-NavLink ml-5 text-white" href="true">
                   اضافه موظف{" "}
                 </a>
               </li>
               <li className="nav-item ">
-                <a className="nav-NavLink ml-5 text-white" href>
+                <a className="nav-NavLink ml-5 text-white" href="true">
                   عرض الموظفون
                 </a>
               </li>
               <li className="nav-item ">
-                <a className="nav-NavLink ml-5 text-white" href>
+                <a className="nav-NavLink ml-5 text-white" href="true">
                   عرض الطلبات
                 </a>
               </li>
               <li className="nav-item ">
-                <a className="nav-NavLink ml-5 text-white" href>
+                <a className="nav-NavLink ml-5 text-white" href="true">
                   تسجيل الخروج
                 </a>
               </li>
@@ -203,7 +221,7 @@ function Employees() {
           <div className="row">
             <nav className="navbar navbar-light col-12 align-items-start pt-3 px-5 d-none d-lg-block d-xl-block">
               <div className="d-flex">
-                <a className="navbar-brand " href>
+                <a className="navbar-brand " href="true">
                   لوحه التحكم
                 </a>
                 <form className="d-flex ml-auto mr-5 ">
@@ -235,9 +253,9 @@ function Employees() {
             </nav>
             <section className="col-12 mt-3">
               {body}
-              <div className="number d-flex justify-content-center mt-3 ">
+             {/*  <div className="number d-flex justify-content-center mt-3 ">
                 1 2 3 ... <a href="true">التالى</a>
-              </div>
+              </div> */}
             </section>
             ]
           </div>

@@ -238,7 +238,7 @@ let form=null
     if(this.props.loading)form=<Spiner />
 
     if (this.props.error === null && this.props.token) {
-        this.verify.current.style.display = "block";
+      window.location.href = `/verify/${this.state.controls.email.value}`;
       }
 
       var a = document.querySelector(".spinner-wrapper");

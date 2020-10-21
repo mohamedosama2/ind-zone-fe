@@ -55,7 +55,7 @@ class ChangePassEmail extends React.Component {
       e.preventDefault();
       if (this.state.controls.email.valid) {
         this.setState({ loading: true });
-        const res = await Axios.post("/resend", {
+   await Axios.post("/resend", {
           email: this.state.controls.email.value,
         });
         this.setState({ loading: false });
