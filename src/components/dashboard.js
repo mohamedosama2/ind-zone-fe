@@ -316,9 +316,9 @@ class Dashboard extends Component {
                     exact
                   >
                     <span className="ml-2">
-                    <i className="fas fa-users"></i>
+                      <i className="fas fa-users"></i>
                     </span>
-                   عرض الطلبات
+                    عرض الطلبات
                   </NavLink>
                   <NavLink
                     activeStyle={{ background: "#64b5f6", width: "100%" }}

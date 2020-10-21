@@ -15,19 +15,21 @@ class Model extends Component {
     super();
 
     this.state = {
-      specifiedArea: "",
-      usedArea: "",
-      openArea: "",
-      LegalStructuralRatio: "",
-      structuralRatioOnNature: "",
-      statusOfBuildingPermit: "",
-      statusOfOperating: "",
-      violations: "",
-      reportPreviewOnNature: "",
-      notes: "",
+      nameOfOwner: "",
+      nameOfProject: "",
+      city: "",
+      nationality: "",
+      industrialArea: "",
       activity: "",
-      holderOfTheSite: "",
-      type: "follow",
+      requiredArea: "",
+      workingCapital: "",
+      cost: "",
+      employment: "",
+      legalStatus: "",
+      duration: "",
+      marketingSystem: "",
+      expectedAnnualProductionAmount: "",
+      type: "project",
     };
   }
 
@@ -43,6 +45,8 @@ class Model extends Component {
     Axios.post("/orders", this.state, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Accept: "application/json",
+        "Content-type": "application/json",
       },
     })
       .then((res) => {
@@ -52,6 +56,7 @@ class Model extends Component {
         console.log(err);
       });
   };
+
   render() {
     $(document).ready(function () {
       $("#click").click(function () {
@@ -116,7 +121,7 @@ class Model extends Component {
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item ">
                     <a className="nav-link" href="/user">
-                      الصفحه الرئيسيه{" "}
+                      الصفحه الرئيسيه
                     </a>
                   </li>
                   <li className="nav-item">
@@ -137,7 +142,7 @@ class Model extends Component {
                       الطلبات
                     </a>
                     <div
-                      className="dropdown-menu"
+                      className="dropdown-menu text-dark"
                       aria-labelledby="navbarDropdownMenuLink"
                     >
                       <a className="dropdown-item" href="/model2">
@@ -155,6 +160,7 @@ class Model extends Component {
                     </div>
                   </li>
                 </ul>
+
                 <span className="navbar-text ml-xl-5 ml-md-0 d-flex">
                   <form className="form-inline">
                     <input
@@ -181,17 +187,17 @@ class Model extends Component {
             </nav>
           </div>
           <section className="text-center">
-            <h2>نموذج متابعة</h2>
-
+            <h2>نموذج إقامه مشروع</h2>
             <form className="  container ml-5 ">
               <div className="row d-flex justify-content-center">
                 <div className="form-group   mb-4 col-lg-5 col-md-10">
                   <input
                     type="text"
                     className=" form-control "
-                    placeholder="مساحه مخصصه"
-                    name="specifiedArea"
-                    value={this.state.specifiedArea}
+                    id="address"
+                    placeholder="مقدمه لسيادتكم"
+                    name="nameOfOwner"
+                    value={this.nameOfOwner}
                     onChange={this.onChangeHandler}
                   />
                 </div>
@@ -199,43 +205,49 @@ class Model extends Component {
                   <input
                     type="text"
                     className=" form-control "
-                    placeholder="مساحه مستغله "
-                    name="usedArea"
-                    value={this.state.usedArea}
+                    id="address"
+                    placeholder="مقيم فى"
+                    name="city"
+                    value={this.city}
                     onChange={this.onChangeHandler}
                   />
                 </div>
+                <div className="form-group   mb-4 col-lg-5 col-md-10">
+                  <input
+                    type="text"
+                    className=" form-control "
+                    id="Nationality"
+                    placeholder="الجنسيه "
+                    name="nationality"
+                    value={this.nationality}
+                    onChange={this.onChangeHandler}
+                  />
+                </div>
+                <div className="form-group   mb-4 col-lg-5 col-md-10">
+                  <select
+                    className="form-control"
+                    id="exampleFormControlSelect1"
+                    name="industrialArea"
+                    value={this.industrialArea}
+                    onChange={this.onChangeHandler}
+                  >
+                    <option disabled selected hidden>
+                      بالمنطقة الصناعية
+                    </option>
+                    <option>الاولى</option>
+                    <option>التانيه</option>
+                  </select>
+                </div>
               </div>
+
               <div className="row d-flex justify-content-center">
                 <div className="form-group   mb-4 col-lg-5 col-md-10">
                   <input
                     type="text"
                     className=" form-control "
-                    placeholder="مساحه الفضاء"
-                    name="openArea"
-                    value={this.state.openArea}
-                    onChange={this.onChangeHandler}
-                  />
-                </div>
-                <div className="form-group   mb-4 col-lg-5 col-md-10">
-                  <input
-                    type="number"
-                    className=" form-control "
-                    placeholder="النسبه البنائيه القانونيه "
-                    name="LegalStructuralRatio"
-                    value={this.state.LegalStructuralRatio}
-                    onChange={this.onChangeHandler}
-                  />
-                </div>
-              </div>
-              <div className="row d-flex justify-content-center">
-                <div className="form-group   mb-4 col-lg-5 col-md-10">
-                  <input
-                    type="number"
-                    className=" form-control "
-                    placeholder="النسبه البنائيه على الطبيعة "
-                    name="structuralRatioOnNature"
-                    value={this.state.structuralRatioOnNature}
+                    placeholder="اسم المشروع"
+                    name="nameOfProject"
+                    value={this.nameOfProject}
                     onChange={this.onChangeHandler}
                   />
                 </div>
@@ -243,53 +255,9 @@ class Model extends Component {
                   <input
                     type="text"
                     className=" form-control "
-                    placeholder=" الموقف من ترخيص البناء"
-                    name="statusOfBuildingPermit"
-                    value={this.state.statusOfBuildingPermit}
-                    onChange={this.onChangeHandler}
-                  />
-                </div>
-              </div>
-              <div className="row d-flex justify-content-center">
-                <div className="form-group   mb-4 col-lg-5 col-md-10">
-                  <input
-                    type="text"
-                    className=" form-control "
-                    placeholder=" الموقف من التشغيل"
-                    name="statusOfOperating"
-                    value={this.state.statusOfOperating}
-                    onChange={this.onChangeHandler}
-                  />
-                </div>
-                <div className="form-group   mb-4 col-lg-5 col-md-10">
-                  <input
-                    type="text"
-                    className=" form-control "
-                    placeholder="  الحائز للموقع وصفته"
-                    name="holderOfTheSite"
-                    value={this.state.holderOfTheSite}
-                    onChange={this.onChangeHandler}
-                  />
-                </div>
-              </div>
-              <div className="row d-flex justify-content-center">
-                <div className="form-group   mb-4 col-lg-5 col-md-10">
-                  <input
-                    type="text"
-                    className=" form-control "
-                    placeholder="نوع النشاط"
+                    placeholder="نوع النشاط "
                     name="activity"
-                    value={this.state.activity}
-                    onChange={this.onChangeHandler}
-                  />
-                </div>
-                <div className="form-group   mb-4 col-lg-5 col-md-10">
-                  <input
-                    type="text"
-                    className=" form-control "
-                    placeholder="المخالفات ايا كان نوعها"
-                    name="violations"
-                    value={this.state.violations}
+                    value={this.activity}
                     onChange={this.onChangeHandler}
                   />
                 </div>
@@ -299,23 +267,92 @@ class Model extends Component {
                   <input
                     type="text"
                     className=" form-control "
-                    placeholder="تقرير المعاينه على الطبيعة"
-                    name="reportPreviewOnNature"
-                    value={this.state.reportPreviewOnNature}
+                    placeholder="المساحه المطلوبه"
+                    name="requiredArea"
+                    value={this.requiredArea}
+                    onChange={this.onChangeHandler}
+                  />
+                </div>
+                <div className="form-group   mb-4 col-lg-5 col-md-10">
+                  <input
+                    type="number"
+                    className=" form-control "
+                    placeholder="رأس مال العامل "
+                    name="workingCapital"
+                    value={this.workingCapital}
                     onChange={this.onChangeHandler}
                   />
                 </div>
               </div>
-              <div className="row">
-                <div className="form-group   mb-4 col-lg-10 col-md-10 d-flex justify-content-center">
-                  <textarea
-                    type="text"
+              <div className="row d-flex justify-content-center">
+                <div className="form-group   mb-4 col-lg-5 col-md-10">
+                  <input
+                    type="number"
                     className=" form-control "
-                    placeholder="ملاحظات"
-                    name="notes"
-                    value={this.state.notes}
+                    placeholder=" التكلفه الاستثماريه"
+                    name="cost"
+                    value={this.cost}
                     onChange={this.onChangeHandler}
                   />
+                </div>
+                <div className="form-group   mb-4 col-lg-5 col-md-10">
+                  <input
+                    type="number"
+                    className=" form-control "
+                    placeholder="  حجم العماله"
+                    name="employment"
+                    value={this.employment}
+                    onChange={this.onChangeHandler}
+                  />
+                </div>
+              </div>
+              <div className="row d-flex justify-content-center">
+                <div className="form-group   mb-4 col-lg-5 col-md-10">
+                  <input
+                    type="text"
+                    className=" form-control "
+                    placeholder=" الشكل القانونى"
+                    name="legalStatus"
+                    value={this.legalStatus}
+                    onChange={this.onChangeHandler}
+                  />
+                </div>
+                <div className="form-group   mb-4 col-lg-5 col-md-10">
+                  <input
+                    type="text"
+                    className=" form-control "
+                    placeholder="  مده التنفيذ"
+                    name="duration"
+                    value={this.duration}
+                    onChange={this.onChangeHandler}
+                  />
+                </div>
+              </div>
+              <div className="row d-flex justify-content-center">
+                <div className="form-group   mb-4 col-lg-5 col-md-10">
+                  <input
+                    type="text"
+                    className=" form-control "
+                    placeholder=" كميه الإنتاج السنوى المتوقع"
+                    name="expectedAnnualProductionAmount"
+                    value={this.expectedAnnualProductionAmount}
+                    onChange={this.onChangeHandler}
+                  />
+                </div>
+                <div className="form-group   mb-4 col-lg-5 col-md-10">
+                  <select
+                    className="form-control"
+                    id="exampleFormControlSelect1"
+                    name="marketingSystem"
+                    value={this.marketingSystem}
+                    onChange={this.onChangeHandler}
+                  >
+                    <option disabled selected hidden>
+                      نظام التوسق
+                    </option>
+                    <option>داخلى</option>
+                    <option>خارجى</option>
+                  </select>
                 </div>
               </div>
 
@@ -344,7 +381,6 @@ class Model extends Component {
               <br />
               dina@gmail <br />
               <a href="/user" className="btn btn-color">
-                {" "}
                 الصفحه الرئيسيه
               </a>
             </p>
