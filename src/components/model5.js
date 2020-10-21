@@ -45,8 +45,6 @@ class Model extends Component {
     Axios.post("/orders", this.state, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
-        Accept: "application/json",
-        "Content-type": "application/json",
       },
     })
       .then((res) => {
