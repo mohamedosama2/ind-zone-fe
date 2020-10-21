@@ -3,7 +3,7 @@ div.size {
 }
 div.size aside.sidebar {
   background-color: #6DABE4;
-  height: 100vh;
+  min-height: 100vh;
 }
 div.size aside.sidebar .info {
   color: #ffffff;

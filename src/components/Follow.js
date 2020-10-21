@@ -11,6 +11,10 @@ class Follow extends Component {
              $("#print").click(function(){
                  window.print();
              })
+             var a = document.querySelector(".spinner-wrapper");
+             setTimeout(() => {
+               a.style.display = "none";
+             }, 100);
         return(
             <div className="container preview">
                 <div className="row">

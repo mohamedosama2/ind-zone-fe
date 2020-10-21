@@ -6,6 +6,7 @@ import img from "../2.png";
 import done from "./images/done.jpg"
 import "../fontawesome-free-5.9.0-web/css/all.css";
 import "../WOW-master/css/libs/animate.css";
+import {NavLink} from 'react-router-dom'
 import {
   WOW
 } from "wowjs";
@@ -57,6 +58,10 @@ class Model extends Component {
         }
       })
     });
+    var a = document.querySelector(".spinner-wrapper");
+    setTimeout(() => {
+      a.style.display = "none";
+    }, 100);
     return (
       <div>
         <div className="hide">
@@ -102,7 +107,7 @@ class Model extends Component {
     
                     {/* <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> */}
                   </form>
-                  <a href="true" className="text-white mr-3 mt-1">تسجيل الخروج</a>
+                    <NavLink to="/logout" className="text-white mr-3 mt-1">تسجيل الخروج</NavLink>
     
                 </span>
               </div>

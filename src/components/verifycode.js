@@ -41,7 +41,10 @@ function ChangeCode(props) {
       setErrr(error);
     }
   }
-
+  var s = document.querySelector(".spinner-wrapper");
+  setTimeout(() => {
+    s.style.display = "none";
+  }, 100);
   return (
     <div>
       <section className=" container loginsection  mt-5 ">

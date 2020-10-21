@@ -9,6 +9,10 @@ wow.init();
 
 class CodeSignup extends Component {
   render() {
+    var a = document.querySelector(".spinner-wrapper");
+    setTimeout(() => {
+      a.style.display = "none";
+    }, 100);
     return (
       <div>
         <section className=" container loginsection  mt-5 ">

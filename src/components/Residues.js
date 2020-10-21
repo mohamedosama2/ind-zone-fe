@@ -2,7 +2,6 @@ import React, { useEffect, useState,Component } from "react";
 import "./styles/orders.css";
 import img from "../3.png";
 import "../fontawesome-free-5.9.0-web/css/all.css";
-import { NavLink } from "react-router-dom";
 import Axios from "../axios";
 import $ from 'jquery';
 
@@ -11,6 +10,10 @@ class Residues extends Component {
              $("#print").click(function(){
                  window.print();
              })
+             var a = document.querySelector(".spinner-wrapper");
+             setTimeout(() => {
+               a.style.display = "none";
+             }, 100);
         return(
             <div className="container preview">
                 <div className="row">

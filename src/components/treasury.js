@@ -11,6 +11,10 @@ wow.init();
 function treasury() {
   /* if(employes.length>9)setL('100%')
    */
+  var a = document.querySelector(".spinner-wrapper");
+  setTimeout(() => {
+    a.style.display = "none";
+  }, 100);
   return (
     <div className="container-fluid size">
       <div className="row">

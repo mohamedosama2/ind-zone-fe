@@ -10,6 +10,7 @@ import {
   WOW
 } from "wowjs";
 import $ from 'jquery';
+import { NavLink } from "react-router-dom";
 const wow = new WOW();
 wow.init();
 class Model extends Component {
@@ -59,6 +60,10 @@ class Model extends Component {
         }
       })
     });
+    var a = document.querySelector(".spinner-wrapper");
+    setTimeout(() => {
+      a.style.display = "none";
+    }, 100);
     return (
       <div>
         <div className="hide">
@@ -105,8 +110,10 @@ class Model extends Component {
     
                     {/* <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> */}
                   </form>
-                  <a href="true" className="text-white mr-3 mt-1">تسجيل الخروج</a>
-    
+{/*                   <a href="true" className="text-white mr-3 mt-1">تسجيل الخروج</a>
+
+ */}    
+                    <NavLink to="/logout" className="text-white mr-3 mt-1">تسجيل الخروج</NavLink>
                 </span>
               </div>
             </nav>

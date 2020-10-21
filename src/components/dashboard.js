@@ -3,11 +3,12 @@ import "./styles/dashboard.css";
 import img from "./images/main-banner.jpg";
 import "../fontawesome-free-5.9.0-web/css/all.css";
 import "../WOW-master/css/libs/animate.css";
+import Spinner from "./Spiner/Spiner";
+
 import { WOW } from "wowjs";
 import Input from "./Input/Input";
-import { updatedObject, checkValidity } from "../shared/shared";
+import { updatedObject, checkValidity, reset } from "../shared/shared";
 import Axios from "../axios";
-// import WithErrorHandler from "./withErrorHandler/withErrorHandler";
 import { NavLink } from "react-router-dom";
 const wow = new WOW();
 wow.init();
@@ -122,6 +123,7 @@ class Dashboard extends Component {
       job: "secretary",
     },
     error: null,
+    loading: false,
   };
 
   on(event, elementName) {
@@ -152,7 +154,7 @@ class Dashboard extends Component {
         this.state.controls.password.valid
       ) {
         const token = localStorage.getItem("token");
-        this.setState({ error: null });
+        this.setState({ error: null, loading: true });
         await Axios.post(
           "/register/employee",
           {
@@ -160,7 +162,6 @@ class Dashboard extends Component {
             username: this.state.controls.name.value,
             email: this.state.controls.email.value,
             phone: this.state.controls.phone.value,
-            /*  date: this.state.controls.date.value, */
             address: this.state.controls.address.value,
             role: this.state.controls.job,
             password: this.state.controls.password.value,
@@ -171,14 +172,21 @@ class Dashboard extends Component {
             },
           }
         );
-        window.location.href = "/admin/dashboard";
+        this.setState({ controls: reset(this.state.controls, "NationalID") });
+        this.setState({ controls: reset(this.state.controls, "name") });
+        this.setState({ controls: reset(this.state.controls, "phone") });
+        this.setState({ controls: reset(this.state.controls, "address") });
+        this.setState({ controls: reset(this.state.controls, "password") });
+        this.setState({ controls: reset(this.state.controls, "date") });
+        this.setState({ controls: reset(this.state.controls, "email") });
+        this.setState({ loading: false });
       } else {
         let error = (
           <div class="alert alert-danger w-75" role="alert">
             Must fill all Choices
           </div>
         );
-        this.setState({ error });
+        this.setState({ error, loading: false });
       }
     } catch (error) {
       if (error.response) {
@@ -189,19 +197,159 @@ class Dashboard extends Component {
               : error.response.data.errors}
           </div>
         );
-        this.setState({ error: er });
+        this.setState({ error: er, loading: false });
       } else {
         let er = (
           <div class="alert alert-danger m-auto" role="alert">
             "Internal Server Error"
           </div>
         );
-        this.setState({ error: er });
+        this.setState({ error: er, loading: false });
       }
     }
   };
 
   render() {
+    var a = document.querySelector(".spinner-wrapper");
+    setTimeout(() => {
+      a.style.display = "none";
+    }, 100);
+
+    let form = (
+      <form className=" mr-5 mt-5 ">
+        <div className="row">
+          <div className="form-group col-lg-6 col-md-12    mb-4 d-flex">
+            <span className="icon">
+              <i className="fas fa-user-alt"></i>
+            </span>
+            <Input
+              inValid={!this.state.controls.name.valid}
+              changed={(e) => this.on(e, "name")}
+              value={this.state.controls.name.value}
+              elementType={this.state.controls.name.elementType}
+              hasValidity
+              touched={this.state.controls.name.touched}
+              elementConfig={this.state.controls.name.elementConfig}
+            />
+          </div>
+          <div className="form-group col-lg-6 col-md-12    mb-4 d-flex">
+            <span className="icon">
+              {" "}
+              <i className="fas fa-phone-alt"></i>
+            </span>
+            <Input
+              inValid={!this.state.controls.phone.valid}
+              changed={(e) => this.on(e, "phone")}
+              value={this.state.controls.phone.value}
+              elementType={this.state.controls.phone.elementType}
+              hasValidity
+              touched={this.state.controls.phone.touched}
+              elementConfig={this.state.controls.phone.elementConfig}
+            />
+          </div>
+          <div className="form-group col-lg-6 col-md-12  date  mb-4 d-flex">
+            <Input
+              inValid={!this.state.controls.date.valid}
+              changed={(e) => this.on(e, "date")}
+              value={this.state.controls.date.value}
+              elementType={this.state.controls.date.elementType}
+              hasValidity
+              touched={this.state.controls.date.touched}
+              elementConfig={this.state.controls.date.elementConfig}
+            />
+          </div>
+          <div className="form-group col-lg-6 col-md-12    mb-4 d-flex">
+            <span className="icon">
+              {" "}
+              <i className="fas fa-map-marker-alt"></i>
+            </span>
+            <Input
+              inValid={!this.state.controls.address.valid}
+              changed={(e) => this.on(e, "address")}
+              value={this.state.controls.address.value}
+              elementType={this.state.controls.address.elementType}
+              hasValidity
+              touched={this.state.controls.address.touched}
+              elementConfig={this.state.controls.address.elementConfig}
+            />
+          </div>
+          <div className="form-group col-lg-6 col-md-12  date  mb-4 d-flex">
+            <span className="icon">
+              <i className="fas fa-envelope "></i>
+            </span>
+            <Input
+              inValid={!this.state.controls.email.valid}
+              changed={(e) => this.on(e, "email")}
+              value={this.state.controls.email.value}
+              elementType={this.state.controls.email.elementType}
+              hasValidity
+              touched={this.state.controls.email.touched}
+              elementConfig={this.state.controls.email.elementConfig}
+            />
+          </div>
+          <div className="form-group col-lg-6 col-md-12    mb-4 d-flex">
+            <span className="icon">
+              {" "}
+              <i className="fas fa-id-card"></i>
+            </span>
+            <Input
+              inValid={!this.state.controls.NationalID.valid}
+              changed={(e) => this.on(e, "NationalID")}
+              value={this.state.controls.NationalID.value}
+              elementType={this.state.controls.NationalID.elementType}
+              hasValidity
+              touched={this.state.controls.NationalID.touched}
+              elementConfig={this.state.controls.NationalID.elementConfig}
+            />
+          </div>
+          <div className="form-group col-lg-6 col-md-12  date  mb-4 d-flex">
+            <span className="icon">
+              <i className="fas fa-portrait"></i>
+            </span>
+            <select
+              className="form-control"
+              id="exampleFormControlSelect1"
+              onChange={(e) => {
+                let controls = this.state.controls;
+                controls.job = e.target.value;
+                this.setState({ controls });
+                console.log(e.target.value);
+              }}
+            >
+              <option value="secretary">سكرتارية</option>
+              <option value="accountant">حسابات</option>
+              <option value="technician">مكتب فنى</option>
+              <option value="treasury">خزينة</option>
+            </select>
+          </div>
+          <div className="form-group col-lg-6 col-md-12    mb-4 d-flex">
+            <span className="icon">
+              {" "}
+              <i className="fas fa-lock"></i>
+            </span>
+            <Input
+              inValid={!this.state.controls.password.valid}
+              changed={(e) => this.on(e, "password")}
+              value={this.state.controls.password.value}
+              elementType={this.state.controls.password.elementType}
+              hasValidity
+              touched={this.state.controls.password.touched}
+              elementConfig={this.state.controls.password.elementConfig}
+            />
+          </div>
+          <div className="mt-3 col-lg-6 col-md-12 mx-auto ">
+            <button className="btn btn-color " onClick={this.add} type="submit">
+              {" "}
+              إضافه موظف
+            </button>
+          </div>
+        </div>
+      </form>
+    );
+    if (this.state.loading) {
+      form = <Spinner />;
+    }
+
     return (
       <div className="container-fluid size">
         <div className="row">
@@ -316,9 +464,9 @@ class Dashboard extends Component {
                     exact
                   >
                     <span className="ml-2">
-                    <i className="fas fa-users"></i>
+                      <i className="fas fa-users"></i>
                     </span>
-                   عرض الطلبات
+                    عرض الطلبات
                   </NavLink>
                   <NavLink
                     activeStyle={{ background: "#64b5f6", width: "100%" }}
@@ -374,145 +522,7 @@ class Dashboard extends Component {
               <section className="add col-12 mt-4 p-5">
                 <h4>إضافة موظف</h4>
                 {this.state.error}
-                <form className=" mr-5 mt-5 ">
-                  <div className="row">
-                    <div className="form-group col-lg-6 col-md-12    mb-4 d-flex">
-                      <span className="icon">
-                        <i className="fas fa-user-alt"></i>
-                      </span>
-                      <Input
-                        inValid={!this.state.controls.name.valid}
-                        changed={(e) => this.on(e, "name")}
-                        value={this.state.controls.name.value}
-                        elementType={this.state.controls.name.elementType}
-                        hasValidity
-                        touched={this.state.controls.name.touched}
-                        elementConfig={this.state.controls.name.elementConfig}
-                      />
-                    </div>
-                    <div className="form-group col-lg-6 col-md-12    mb-4 d-flex">
-                      <span className="icon">
-                        {" "}
-                        <i className="fas fa-phone-alt"></i>
-                      </span>
-                      <Input
-                        inValid={!this.state.controls.phone.valid}
-                        changed={(e) => this.on(e, "phone")}
-                        value={this.state.controls.phone.value}
-                        elementType={this.state.controls.phone.elementType}
-                        hasValidity
-                        touched={this.state.controls.phone.touched}
-                        elementConfig={this.state.controls.phone.elementConfig}
-                      />
-                    </div>
-                    <div className="form-group col-lg-6 col-md-12  date  mb-4 d-flex">
-                      <Input
-                        inValid={!this.state.controls.date.valid}
-                        changed={(e) => this.on(e, "date")}
-                        value={this.state.controls.date.value}
-                        elementType={this.state.controls.date.elementType}
-                        hasValidity
-                        touched={this.state.controls.date.touched}
-                        elementConfig={this.state.controls.date.elementConfig}
-                      />
-                    </div>
-                    <div className="form-group col-lg-6 col-md-12    mb-4 d-flex">
-                      <span className="icon">
-                        {" "}
-                        <i className="fas fa-map-marker-alt"></i>
-                      </span>
-                      <Input
-                        inValid={!this.state.controls.address.valid}
-                        changed={(e) => this.on(e, "address")}
-                        value={this.state.controls.address.value}
-                        elementType={this.state.controls.address.elementType}
-                        hasValidity
-                        touched={this.state.controls.address.touched}
-                        elementConfig={
-                          this.state.controls.address.elementConfig
-                        }
-                      />
-                    </div>
-                    <div className="form-group col-lg-6 col-md-12  date  mb-4 d-flex">
-                      <span className="icon">
-                        <i className="fas fa-envelope "></i>
-                      </span>
-                      <Input
-                        inValid={!this.state.controls.email.valid}
-                        changed={(e) => this.on(e, "email")}
-                        value={this.state.controls.email.value}
-                        elementType={this.state.controls.email.elementType}
-                        hasValidity
-                        touched={this.state.controls.email.touched}
-                        elementConfig={this.state.controls.email.elementConfig}
-                      />
-                    </div>
-                    <div className="form-group col-lg-6 col-md-12    mb-4 d-flex">
-                      <span className="icon">
-                        {" "}
-                        <i className="fas fa-id-card"></i>
-                      </span>
-                      <Input
-                        inValid={!this.state.controls.NationalID.valid}
-                        changed={(e) => this.on(e, "NationalID")}
-                        value={this.state.controls.NationalID.value}
-                        elementType={this.state.controls.NationalID.elementType}
-                        hasValidity
-                        touched={this.state.controls.NationalID.touched}
-                        elementConfig={
-                          this.state.controls.NationalID.elementConfig
-                        }
-                      />
-                    </div>
-                    <div className="form-group col-lg-6 col-md-12  date  mb-4 d-flex">
-                      <span className="icon">
-                        <i className="fas fa-portrait"></i>
-                      </span>
-                      <select
-                        className="form-control"
-                        id="exampleFormControlSelect1"
-                        onChange={(e) => {
-                          let controls = this.state.controls;
-                          controls.job = e.target.value;
-                          this.setState({ controls });
-                          console.log(e.target.value);
-                        }}
-                      >
-                        <option value="secretary">سكرتارية</option>
-                        <option value="accountant">حسابات</option>
-                        <option value="technician">مكتب فنى</option>
-                        <option value="treasury">خزينة</option>
-                      </select>
-                    </div>
-                    <div className="form-group col-lg-6 col-md-12    mb-4 d-flex">
-                      <span className="icon">
-                        {" "}
-                        <i className="fas fa-lock"></i>
-                      </span>
-                      <Input
-                        inValid={!this.state.controls.password.valid}
-                        changed={(e) => this.on(e, "password")}
-                        value={this.state.controls.password.value}
-                        elementType={this.state.controls.password.elementType}
-                        hasValidity
-                        touched={this.state.controls.password.touched}
-                        elementConfig={
-                          this.state.controls.password.elementConfig
-                        }
-                      />
-                    </div>
-                    <div className="mt-3 col-lg-6 col-md-12 mx-auto ">
-                      <button
-                        className="btn btn-color "
-                        onClick={this.add}
-                        type="submit"
-                      >
-                        {" "}
-                        إضافه موظف
-                      </button>
-                    </div>
-                  </div>
-                </form>
+                {form}
               </section>
             </div>
           </div>

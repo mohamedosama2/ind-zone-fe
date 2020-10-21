@@ -6,8 +6,8 @@ import "../WOW-master/css/libs/animate.css";
 import { updatedObject, checkValidity } from "../shared/shared";
 import Input from "../components/Input/Input";
 import Axios from "../axios";
-
 import { WOW } from "wowjs";
+import Spiner from "./Spiner/Spiner";
 const wow = new WOW();
 wow.init();
 
@@ -32,6 +32,7 @@ class ChangePassEmail extends React.Component {
           touched: false,
         },
       },
+      loading: false,
     };
     this.emailErr = createRef();
   }
@@ -53,17 +54,60 @@ class ChangePassEmail extends React.Component {
     try {
       e.preventDefault();
       if (this.state.controls.email.valid) {
+        this.setState({ loading: true });
         const res = await Axios.post("/resend", {
           email: this.state.controls.email.value,
         });
+        this.setState({ loading: false });
         window.location.href = `/changepasscode/${this.state.controls.email.value}`;
       }
     } catch (err) {
-      this.emailErr.current.style.display = "inline";
+      this.setState({ loading: false });
+      this.emailErr.current.style.display = "inherit";
     }
   };
 
   render() {
+    var a = document.querySelector(".spinner-wrapper");
+    setTimeout(() => {
+      a.style.display = "none";
+    }, 100);
+
+    let form = null;
+    form = (
+      <form className=" mr-5 mt-5 pt-5 ">
+        <div className="text d-flex justify-content-start mt-5 mr-5 -3">
+          <p>ادخل البريد الخاص بك</p>
+        </div>
+
+        <div className="form-group  mr-5 mb-4  ">
+          <div className="d-flex">
+            <span className="icon">
+              <i className="fas fa-envelope "></i>
+            </span>
+
+            <Input
+              inValid={!this.state.controls.email.valid}
+              changed={(e) => this.on(e, "email")}
+              value={this.state.controls.email.value}
+              elementType={this.state.controls.email.elementType}
+              hasValidity
+              touched={this.state.controls.email.touched}
+              elementConfig={this.state.controls.email.elementConfig}
+            />
+          </div>
+        </div>
+
+        <div className="d-flex justify-content-center mt-3  mr-5">
+          <a className="btn btn-color px-4 " onClick={this.send} href>
+            متابعه{" "}
+          </a>
+        </div>
+      </form>
+    );
+    if (this.state.loading) {
+      form = <Spiner />;
+    }
     return (
       <div>
         <section className=" container loginsection  mt-5 ">
@@ -97,42 +141,7 @@ class ChangePassEmail extends React.Component {
               >
                 Not Found
               </div>
-              <form className=" mr-5 mt-5 pt-5 ">
-                <div className="text d-flex justify-content-start mt-5 mr-5 -3">
-                  <p>ادخل البريد الخاص بك</p>
-                </div>
-
-                <div className="form-group  mr-5 mb-4  ">
-                  <div className="d-flex">
-                    <span className="icon">
-                      <i className="fas fa-envelope "></i>
-                    </span>
-
-                    <Input
-                      inValid={!this.state.controls.email.valid}
-                      changed={(e) => this.on(e, "email")}
-                      value={this.state.controls.email.value}
-                      elementType={this.state.controls.email.elementType}
-                      hasValidity
-                      touched={this.state.controls.email.touched}
-                      elementConfig={this.state.controls.email.elementConfig}
-                    />
-                    {/* <input
-                    type="email"
-                    className=" form-control "
-                    id="Email"
-                    placeholder="البريد الالكترونى"
-                    onChange={e=>this.setState({})}
-                  /> */}
-                  </div>
-                </div>
-
-                <div className="d-flex justify-content-center mt-3  mr-5">
-                  <a className="btn btn-color px-4 " onClick={this.send} href>
-                    متابعه{" "}
-                  </a>
-                </div>
-              </form>
+              {form}
             </div>
           </div>
         </section>

@@ -16,7 +16,10 @@ function Employees() {
       $("#search").addClass("animated fadeInLeft").toggle();
     });
   });
-
+  var a = document.querySelector(".spinner-wrapper");
+  setTimeout(() => {
+    a.style.display = "none";
+  }, 100);
   return (
       <div className="container-fluid p-0">
         <div className="home-bg">
@@ -61,7 +64,8 @@ function Employees() {
                   </span>
 
                 </form>
-                <a href="true" className="text-white mr-3 mt-1">تسجيل الخروج</a>
+                <NavLink to="/logout" className="text-white mr-3 mt-1">تسجيل الخروج</NavLink>
+
 
               </span>
             </div>
