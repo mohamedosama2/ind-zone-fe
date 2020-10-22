@@ -4,12 +4,10 @@ import img from "../2.png";
 import done from "./images/done.jpg";
 import "../fontawesome-free-5.9.0-web/css/all.css";
 import "../WOW-master/css/libs/animate.css";
+import Spiner from "./Spiner/Spiner";
 import { WOW } from "wowjs";
-import { NavLink } from "react-router-dom";
-
 import $ from "jquery";
 import Axios from "../axios";
-import Spiner from "./Spiner/Spiner";
 
 const wow = new WOW();
 wow.init();
@@ -19,8 +17,20 @@ class Model extends Component {
 
     this.state = {
       nameOfOwner: "",
+      nameOfProject: "",
+      city: "",
+      nationality: "",
+      industrialArea: "",
       activity: "",
-      company: "",
+      requiredArea: "",
+      workingCapital: "",
+      cost: "",
+      employment: "",
+      legalStatus: "",
+      duration: "",
+      marketingSystem: "",
+      expectedAnnualProductionAmount: "",
+      /* type: "project", */
       error: null,
       loading: false,
     };
@@ -35,15 +45,42 @@ class Model extends Component {
   submitHandler = async (e) => {
     try {
       e.preventDefault();
-      this.setState({ loading: true, error: null });
-      if (this.state.nameOfOwner && this.state.activity && this.state.company) {
+      this.setState({ error: null, loading: true });
+      if (
+        this.state.nameOfOwner &&
+        this.state.nameOfProject &&
+        this.state.city &&
+        this.state.nationality &&
+        this.state.industrialArea &&
+        this.state.activity &&
+        this.state.requiredArea &&
+        this.state.workingCapital &&
+        this.state.cost &&
+        this.state.employment &&
+        this.state.legalStatus &&
+        this.state.duration &&
+        this.state.marketingSystem &&
+        this.state.expectedAnnualProductionAmount
+      ) {
         await Axios.post(
           "/orders",
           {
             nameOfOwner: this.state.nameOfOwner,
+            nameOfProject: this.state.nameOfProject,
+            city: this.state.city,
+            nationality: this.state.nationality,
+            industrialArea: this.state.industrialArea,
             activity: this.state.activity,
-            company: this.state.company,
-            type: "preview",
+            requiredArea: this.state.requiredArea,
+            workingCapital: this.state.workingCapital,
+            cost: this.state.cost,
+            employment: this.state.employment,
+            legalStatus: this.state.legalStatus,
+            duration: this.state.duration,
+            marketingSystem: this.state.marketingSystem,
+            expectedAnnualProductionAmount: this.state
+              .expectedAnnualProductionAmount,
+            type: "project",
           },
           {
             headers: {
@@ -88,10 +125,15 @@ class Model extends Component {
         $("#search").addClass("animated fadeInLeft").show();
       });
       $(".finish").hide();
-
+      /* $("#done").click(function (e) {
+        e.preventDefault();
+        $(".finish").show();
+        $(".hide").hide();
+      }); */
       $(".navbar-collapse ").css({
         "background-color": "#636363",
       });
+
       var homeNAV = $("#home-nav");
       var offset = homeNAV.offset();
       $("#nav").css({
@@ -117,25 +159,76 @@ class Model extends Component {
     });
 
     let form = (
-      <form className="  container ml-5 " onSubmit={this.submitHandler}>
+      <form className="  container ml-5 ">
         <div className="row d-flex justify-content-center">
           <div className="form-group   mb-4 col-lg-5 col-md-10">
             <input
               type="text"
               className=" form-control "
-              placeholder="اسم الشركه"
-              name="company"
-              value={this.state.company}
-              onChange={this.onChangeHandler}
-            />
-          </div>
-          <div className="form-group   mb-4 col-lg-5 col-md-10">
-            <input
-              type="text"
-              className=" form-control "
-              placeholder="اسم السيد "
+              id="address"
+              placeholder="مقدمه لسيادتكم"
               name="nameOfOwner"
-              value={this.state.nameOfOwner}
+              value={this.nameOfOwner}
+              onChange={this.onChangeHandler}
+            />
+          </div>
+          <div className="form-group   mb-4 col-lg-5 col-md-10">
+            <input
+              type="text"
+              className=" form-control "
+              id="address"
+              placeholder="مقيم فى"
+              name="city"
+              value={this.city}
+              onChange={this.onChangeHandler}
+            />
+          </div>
+          <div className="form-group   mb-4 col-lg-5 col-md-10">
+            <input
+              type="text"
+              className=" form-control "
+              id="Nationality"
+              placeholder="الجنسيه "
+              name="nationality"
+              value={this.nationality}
+              onChange={this.onChangeHandler}
+            />
+          </div>
+          <div className="form-group   mb-4 col-lg-5 col-md-10">
+            <select
+              className="form-control"
+              id="exampleFormControlSelect1"
+              name="industrialArea"
+              value={this.industrialArea}
+              onChange={this.onChangeHandler}
+            >
+              <option disabled selected hidden>
+                بالمنطقة الصناعية
+              </option>
+              <option>الاولى</option>
+              <option>التانيه</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="row d-flex justify-content-center">
+          <div className="form-group   mb-4 col-lg-5 col-md-10">
+            <input
+              type="text"
+              className=" form-control "
+              placeholder="اسم المشروع"
+              name="nameOfProject"
+              value={this.nameOfProject}
+              onChange={this.onChangeHandler}
+            />
+          </div>
+          <div className="form-group   mb-4 col-lg-5 col-md-10">
+            <input
+              type="text"
+              className=" form-control "
+              placeholder="نوع النشاط "
+              name="activity"
+              value={this.activity}
               onChange={this.onChangeHandler}
             />
           </div>
@@ -145,18 +238,100 @@ class Model extends Component {
             <input
               type="text"
               className=" form-control "
-              placeholder="النشاط "
-              name="activity"
-              value={this.state.activity}
+              placeholder="المساحه المطلوبه"
+              name="requiredArea"
+              value={this.requiredArea}
+              onChange={this.onChangeHandler}
+            />
+          </div>
+          <div className="form-group   mb-4 col-lg-5 col-md-10">
+            <input
+              type="number"
+              className=" form-control "
+              placeholder="رأس مال العامل "
+              name="workingCapital"
+              value={this.workingCapital}
               onChange={this.onChangeHandler}
             />
           </div>
         </div>
+        <div className="row d-flex justify-content-center">
+          <div className="form-group   mb-4 col-lg-5 col-md-10">
+            <input
+              type="number"
+              className=" form-control "
+              placeholder=" التكلفه الاستثماريه"
+              name="cost"
+              value={this.cost}
+              onChange={this.onChangeHandler}
+            />
+          </div>
+          <div className="form-group   mb-4 col-lg-5 col-md-10">
+            <input
+              type="number"
+              className=" form-control "
+              placeholder="  حجم العماله"
+              name="employment"
+              value={this.employment}
+              onChange={this.onChangeHandler}
+            />
+          </div>
+        </div>
+        <div className="row d-flex justify-content-center">
+          <div className="form-group   mb-4 col-lg-5 col-md-10">
+            <input
+              type="text"
+              className=" form-control "
+              placeholder=" الشكل القانونى"
+              name="legalStatus"
+              value={this.legalStatus}
+              onChange={this.onChangeHandler}
+            />
+          </div>
+          <div className="form-group   mb-4 col-lg-5 col-md-10">
+            <input
+              type="text"
+              className=" form-control "
+              placeholder="  مده التنفيذ"
+              name="duration"
+              value={this.duration}
+              onChange={this.onChangeHandler}
+            />
+          </div>
+        </div>
+        <div className="row d-flex justify-content-center">
+          <div className="form-group   mb-4 col-lg-5 col-md-10">
+            <input
+              type="text"
+              className=" form-control "
+              placeholder=" كميه الإنتاج السنوى المتوقع"
+              name="expectedAnnualProductionAmount"
+              value={this.expectedAnnualProductionAmount}
+              onChange={this.onChangeHandler}
+            />
+          </div>
+          <div className="form-group   mb-4 col-lg-5 col-md-10">
+            <select
+              className="form-control"
+              id="exampleFormControlSelect1"
+              name="marketingSystem"
+              value={this.marketingSystem}
+              onChange={this.onChangeHandler}
+            >
+              <option disabled selected hidden>
+                نظام التوسق
+              </option>
+              <option>داخلى</option>
+              <option>خارجى</option>
+            </select>
+          </div>
+        </div>
+
         <div className="d-flex justify-content-center mt-3  ml-5 pl-5">
           <button
-            type="submit"
             className="btn btn-color ml-5 "
             id="done"
+            type="submit"
             onClick={this.submitHandler}
           >
             اتمام الطلب
@@ -166,11 +341,6 @@ class Model extends Component {
     );
 
     if (this.state.loading) form = <Spiner />;
-
-    var a = document.querySelector(".spinner-wrapper");
-    setTimeout(() => {
-      a.style.display = "none";
-    }, 100);
     return (
       <div>
         <div className="hide">
@@ -197,7 +367,7 @@ class Model extends Component {
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item ">
                     <a className="nav-link" href="/user">
-                      الصفحه الرئيسيه{" "}
+                      الصفحه الرئيسيه
                     </a>
                   </li>
                   <li className="nav-item">
@@ -218,7 +388,7 @@ class Model extends Component {
                       الطلبات
                     </a>
                     <div
-                      className="dropdown-menu"
+                      className="dropdown-menu text-dark"
                       aria-labelledby="navbarDropdownMenuLink"
                     >
                       <a className="dropdown-item" href="/model2">
@@ -236,6 +406,7 @@ class Model extends Component {
                     </div>
                   </li>
                 </ul>
+
                 <span className="navbar-text ml-xl-5 ml-md-0 d-flex">
                   <form className="form-inline">
                     <input
@@ -254,17 +425,16 @@ class Model extends Component {
 
                     {/* <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> */}
                   </form>
-                  <NavLink to="/logout" className="text-white mr-3 mt-1">
+                  <a href="true" className="text-white mr-3 mt-1">
                     تسجيل الخروج
-                  </NavLink>
+                  </a>
                 </span>
               </div>
             </nav>
           </div>
           <section className="text-center">
             {this.state.error}
-            <h2>نموذج معاينه</h2>
-
+            <h2>نموذج إقامه مشروع</h2>
             {form}
           </section>
         </div>
@@ -280,7 +450,6 @@ class Model extends Component {
               <br />
               dina@gmail <br />
               <a href="/user" className="btn btn-color">
-                {" "}
                 الصفحه الرئيسيه
               </a>
             </p>

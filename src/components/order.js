@@ -15,12 +15,13 @@ function Employees() {
   const [page, setPage] = useState(1);
   const [pages, setPages] = useState(3);
   const [loading, setLoading] = useState(false);
+  const [arr, setArr] = useState([]);
 
   useEffect(() => {
     const fetch = async () => {
       try {
         setLoading(true);
-        const { data } = await Axios.get(`/orders?limit=6&&page=${page}`, {
+        const { data } = await Axios.get(`/orders?page=${page}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -28,24 +29,25 @@ function Employees() {
         setLoading(false);
         setPosts(data);
         setPages(data.totalPages);
+        let a = [];
+        for (let i = 1; i <= pages; i++) {
+          a.unshift(i);
+        }
+        setArr(a);
       } catch (err) {
         setLoading(false);
         console.log(err.response);
       }
     };
     fetch();
-  }, [page]);
+  }, [page, pages]);
   const hr = (e) => {
     e.preventDefault();
-    setPage(e.target.textContent);
+    setPage(parseInt(e.target.textContent));
   };
   const clicked = (e) => {
     e.preventDefault();
   };
-  let arr = [];
-  for (let i = 1; i <= pages; i++) {
-    arr.unshift(i);
-  }
 
   /* if(employes.length>9)setL('100%')
    */
@@ -54,11 +56,8 @@ function Employees() {
     a.style.display = "none";
   }, 100);
 
-
-
-let body=null;
-body=
-  posts.docs
+  let body = null;
+  body = posts.docs
     ? posts.docs.map((p) => {
         return (
           <div
@@ -68,9 +67,7 @@ body=
             <div className="card-body col-lg-12      ">
               <div className="row px-5">
                 <p> {p.customer.username}</p>
-                <p className="text-color mr-5 col-lg-5 col-md-10">
-                  {p.type}
-                </p>
+                <p className="text-color mr-5 col-lg-5 col-md-10">{p.type}</p>
                 <a
                   className="icon mr-5"
                   href={`/${p.type}/${p.id}`}
@@ -84,13 +81,11 @@ body=
           </div>
         );
       })
-    : ""
+    : "";
 
-if(loading){
-  body=<Spiner />
-}
-
-
+  if (loading) {
+    body = <Spiner />;
+  }
 
   return (
     <div className="container-fluid size">
@@ -265,37 +260,26 @@ if(loading){
               </div>
             </nav>
             <section className="col-12 mt-3">
-             {body}
+              {body}
 
-              {/* <div className="card  mb-3 col-lg-6 col-md-12 mx-auto">
-                <div className="card-body col-lg-12      ">
-                  <div className="row px-5">
-                    <p> احمد محمد محمود</p>
-                    <p className="text-color mr-5 col-lg-5 col-md-10">
-                      نموذج إقامه مشروع
-                    </p>
-
-                    <a className="icon mr-5" href="/Project" target="_blank">
-                      <i className="fas fa-eye"></i>
-                    </a>
-                  </div>
-                </div>
-              </div> */}
-
-              <div
-                onClick={clicked}
-                style={{ textAlign: "center" }}
-                className="number d-flex justify-content-center mt-3 "
-              >
-                {arr.map((i) => {
-                  return (
-                    <a href="true" onClick={hr}>
-                      {" "}
-                      {i}
-                    </a>
-                  );
-                })}
-              </div>
+              <nav aria-label="Page navigation example " onClick={clicked}>
+                <ul className="pagination d-flex justify-content-center">
+                  {arr.map((i) => {
+                    return (
+                      <li
+                        className={`page-item  ${page === i ? ` active` : ""}`}
+                        onClick={hr}
+                        key={i}
+                      >
+                        <a className="page-link" href="true">
+                          {i}
+                          
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </nav>
             </section>
           </div>
         </div>

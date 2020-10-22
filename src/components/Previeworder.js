@@ -5,11 +5,11 @@ import "../fontawesome-free-5.9.0-web/css/all.css";
 import Axios from "../axios";
 import $ from "jquery";
 
-function Preview() {
+function Preview(props) {
   const [post, setPost] = useState(null);
   useEffect(() => {
     const fetch = async () => {
-      const { data } = await Axios.get("/orders/13", {
+      const { data } = await Axios.get(`/orders/${props.match.params.id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")} `,
         },
@@ -17,7 +17,7 @@ function Preview() {
       setPost(data);
     };
     fetch();
-  }, []);
+  }, [props.match.params.id]);
   $("#print").click(function () {
     window.print();
   });
@@ -65,13 +65,7 @@ function Preview() {
           شركة :{post ? post.company : ""}
           <br />
           الاسم:{post ? post.nameOfOwner : ""}
-          <br />
-          رقم البطاقة :
-          {post
-            ? post.customer.NationalId
-              ? post.customer.NationalId
-              : ""
-            : ""}
+
           <br />
           البريد الالكترونى :
           {post ? (post.customer.email ? post.customer.email : "") : ""}

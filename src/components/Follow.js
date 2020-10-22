@@ -5,11 +5,11 @@ import "../fontawesome-free-5.9.0-web/css/all.css";
 import Axios from "../axios";
 import $ from "jquery";
 
-function Follow() {
+function Follow(props) {
   const [post, setPost] = useState(null);
   useEffect(() => {
     const fetch = async () => {
-      const { data } = await Axios.get("/orders/5", {
+      const { data } = await Axios.get(`/orders/${props.match.params.id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")} `,
         },
@@ -17,7 +17,7 @@ function Follow() {
       setPost(data);
     };
     fetch();
-  }, []);
+  }, [props.match.params.id]);
   /*    console.log(post)
    if(post){
    let date = new Date(post.createdAt).toLocaleDateString('ar-EG-u-nu-latn',{weekday: 'long', year: 'numeric', month: 'short', day: 'numeric'});

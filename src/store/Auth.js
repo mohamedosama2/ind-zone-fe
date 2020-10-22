@@ -44,8 +44,8 @@ export const authSignUp = (username, email, password, phone) => {
           username,
           password,
           phone,
+          role: "customer",
         });
-        console.log(phone && username && email && password)
         if (res.status !== 200 && res.status !== 201) {
           dispatch(authFail(res.data.msg));
         } else {
@@ -86,6 +86,7 @@ export const authSignIn = (email, password) => {
         } else {
           localStorage.setItem("token", data.token);
           localStorage.setItem("userId", data.user.id);
+          console.log(res.data);
           dispatch(authSuccess(data.token, data.user.id, res.data.user.role));
         } /*  */
       }

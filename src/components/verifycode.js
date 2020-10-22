@@ -54,11 +54,11 @@ function ChangeCode(props) {
               src={loginimg}
               alt="loginimg"
               title="loginimg"
-              className="img-fluid"
+              className="img-fluid"/*  */
             />
             <div className="d-flex justify-content-center">
               <a href="/signup" className="linkStyle">
-                Arwaa
+                تسجيل الدخول
               </a>
             </div>
           </div>

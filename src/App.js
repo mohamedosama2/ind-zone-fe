@@ -24,11 +24,11 @@ import Secretary from "./components/secretary";
 import Treasury from "./components/treasury";
 import Technician from "./components/technician";
 import Paper from "./components/paper";
-import FirstModel5 from "./components/firstpagemodel5";
-import Secondmodel5 from "./components/secondpagemodel5";
 import Model2 from "./components/model2";
-import Model4 from "./components/model4";
 import Model3 from "./components/model3";
+import Model4 from "./components/model4";
+import Model5 from "./components/model5";
+import Error from './components/error'
 import "./App.css";
 import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
@@ -50,7 +50,7 @@ const App = (props) => {
         <Route path="/admin/empoyees" component={Employees} />
         <Route path="/admin/order" component={Order} />
         <Route path="/Preview/:id" exact component={Preview} />
-        <Route path="/Residues/:id" exact component={Residues} />
+        <Route path="/remains/:id" exact component={Residues} />
         <Route path="/Follow/:id" exact component={Follow} />
         <Route path="/Project/:id" exact component={Project} />
         <Route path="/verify/:email" component={Verify} />
@@ -107,8 +107,7 @@ const App = (props) => {
         <Route path="/model2" component={Model2} />
         <Route path="/model3" component={Model3} />
         <Route path="/model4" component={Model4} />
-        <Route path="/model5" component={FirstModel5} />
-        <Route path="/secondpagemodel5" component={Secondmodel5} />
+        <Route path="/model5" component={Model5} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/verify/:email" component={Verify} />
         <Route path="/logout" component={Logout} />
@@ -129,7 +128,7 @@ const App = (props) => {
         {localStorage.getItem("token") ? (
           ""
         ) : (
-          <Route path="/*" render={() => <h1>hiii  Dina lsa btsht888l</h1>} />
+          <Route path="/*" component={Error} />
         )}
       </Switch>
     );

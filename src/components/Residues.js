@@ -5,11 +5,11 @@ import "../fontawesome-free-5.9.0-web/css/all.css";
 import Axios from "../axios";
 import $ from "jquery";
 
-function Residues() {
+function Residues(props) {
   const [post, setPost] = useState(null);
   useEffect(() => {
     const fetch = async () => {
-      const { data } = await Axios.get("/orders/12", {
+      const { data } = await Axios.get(`/orders/${props.match.params.id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")} `,
         },
@@ -17,8 +17,7 @@ function Residues() {
       setPost(data);
     };
     fetch();
-  }, []);
-  console.log(post)
+  }, [props.match.params.id]);
   $("#print").click(function () {
     window.print();
   });
@@ -47,9 +46,9 @@ function Residues() {
         <p className="mx-auto text-style col-8">تحيه طيبه وبعد</p>
         <p className="mt-5 justify-content-start mr-5 mt-5 col-10">
           برجاء التكرم من سيادتكم بالموافقة على رفع المخلفات من الشركة بواقع عدد
-          ({post ? post.numberOfRemains : ""}) نقله بمعرفة معدات ومهمات وأفراد
-          سيادتكم ونحن على أتم الاستعداد لسداد الرسوم والبالغة (
-          {post ? post.fees : ""}) فقط لا غير
+          {post ? post.numberOfRemains : ""} نقله بمعرفة معدات ومهمات وأفراد
+          سيادتكم ونحن على أتم الاستعداد لسداد الرسوم والبالغة
+          {post ? post.fees : ""} فقط لا غير
         </p>
         <p className=" text-center  col-12 mt-3">
           وتفضلوا سيادتكم بقبول وافر الاحترام والتقدير
@@ -57,20 +56,20 @@ function Residues() {
 
         <p className=" mr-auto  mt-5 col-6">
           مقدمة لسيادتكم
+          {/*           <br />
+          شركة :() */}
           <br />
-          شركة :()
+          الاسم: {post ? post.customer.username : ""}
+          {/*           <br />
+          رقم البطاقة :() */}
           <br />
-          الاسم:()
+          البريد الالكترونى : {post ? post.customer.email : ""}
           <br />
-          رقم البطاقة :()
-          <br />
-          البريد الالكترونى :()
-          <br />
-          واتساب :()
+          واتساب :{post ? post.customer.phone : ""}
         </p>
 
         <div id="print" className="icon col-7 mr-auto">
-          <i class="fas fa-print"></i> اطبع
+          <i className="fas fa-print"></i> اطبع
         </div>
       </div>
     </div>
