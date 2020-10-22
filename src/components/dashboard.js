@@ -312,7 +312,10 @@ class Dashboard extends Component {
               elementConfig={this.state.controls.password.elementConfig}
             />
           </div>
-          <div className="mt-3 col-lg-6 col-md-12 mx-auto " style={{textAlign:'right'}}>
+          <div
+            className="mt-3 col-lg-6 col-md-12 mx-auto "
+            style={{ textAlign: "right" }}
+          >
             <button className="btn btn-color " onClick={this.add} type="submit">
               {" "}
               إضافه موظف

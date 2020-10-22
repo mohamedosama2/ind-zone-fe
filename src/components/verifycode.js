@@ -14,20 +14,18 @@ function ChangeCode(props) {
   const [c, setC] = useState("");
   const [d, setD] = useState("");
   const [e, setE] = useState("");
-  const [f, setF] = useState("");
   const [err, setErrr] = useState();
 
   async function submit(event) {
     try {
       event.preventDefault();
       const str = "";
-      const s = str.concat(f, e, d, c, b, a);
+      const s = str.concat( e, d, c, b, a);
 
       const res = await Axios.post("/verify", {
         email: props.match.params.email,
         code: s,
       });
-      console.log(res);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userId", res.data.user.id);
 
@@ -100,11 +98,7 @@ function ChangeCode(props) {
                     className=" size ml-2"
                     onChange={(e) => setE(e.target.value)}
                   />
-                  <input
-                    type="number"
-                    className=" size ml-2"
-                    onChange={(e) => setF(e.target.value)}
-                  />
+                
                 </div>
                 <a
                   href="true"
