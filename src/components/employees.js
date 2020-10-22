@@ -112,26 +112,26 @@ const del=async(id)=>{
           </div>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0 p-5 ">
-              <li className="nav-item active">
-                <a className="nav-NavLink ml-5 text-white" href="true">
-                  اضافه موظف{" "}
-                </a>
-              </li>
-              <li className="nav-item ">
-                <a className="nav-NavLink ml-5 text-white" href="true">
-                  عرض الموظفون
-                </a>
-              </li>
-              <li className="nav-item ">
-                <a className="nav-NavLink ml-5 text-white" href="true">
-                  عرض الطلبات
-                </a>
-              </li>
-              <li className="nav-item ">
-                <a className="nav-NavLink ml-5 text-white" href="true">
-                  تسجيل الخروج
-                </a>
-              </li>
+            <li className="nav-item active">
+                  <NavLink  to="/admin/dashboard" className="nav-NavLink ml-5 text-white" >
+                    اضافه موظف{" "}
+                  </NavLink>
+                </li>
+                <li className="nav-item ">
+                  <NavLink  to="/admin/empoyees" className="nav-NavLink ml-5 text-white" >
+                    عرض الموظفون
+                  </NavLink>
+                </li>
+                <li className="nav-item ">
+                  <NavLink to="/admin/order" className="nav-NavLink ml-5 text-white" >
+                    عرض الطلبات
+                  </NavLink>
+                </li>
+                <li className="nav-item ">
+                  <NavLink to="/logout" className="nav-NavLink ml-5 text-white" >
+                    تسجيل الخروج
+                  </NavLink>
+                </li>
               <li>
                 <form className="d-flex col-10 mr-auto mt-2 ">
                   <span className="icon">

@@ -75,20 +75,7 @@ class Dashboard extends Component {
         },
         touched: false,
       },
-      date: {
-        value: "",
-        valid: false,
-        validation: {
-          required: true,
-        },
-        elementType: "input",
-        elementConfig: {
-          type: "date",
-          placeholder: "تاريخ الميلاد",
-          id: "date",
-        },
-        touched: false,
-      },
+
       NationalID: {
         value: "",
         valid: false,
@@ -148,7 +135,6 @@ class Dashboard extends Component {
         this.state.controls.name.valid &&
         this.state.controls.email.valid &&
         this.state.controls.phone.valid &&
-        this.state.controls.date.valid &&
         this.state.controls.address.valid &&
         this.state.controls.job &&
         this.state.controls.password.valid
@@ -247,17 +233,6 @@ class Dashboard extends Component {
               elementConfig={this.state.controls.phone.elementConfig}
             />
           </div>
-          <div className="form-group col-lg-6 col-md-12  date  mb-4 d-flex">
-            <Input
-              inValid={!this.state.controls.date.valid}
-              changed={(e) => this.on(e, "date")}
-              value={this.state.controls.date.value}
-              elementType={this.state.controls.date.elementType}
-              hasValidity
-              touched={this.state.controls.date.touched}
-              elementConfig={this.state.controls.date.elementConfig}
-            />
-          </div>
           <div className="form-group col-lg-6 col-md-12    mb-4 d-flex">
             <span className="icon">
               {" "}
@@ -337,7 +312,7 @@ class Dashboard extends Component {
               elementConfig={this.state.controls.password.elementConfig}
             />
           </div>
-          <div className="mt-3 col-lg-6 col-md-12 mx-auto ">
+          <div className="mt-3 col-lg-6 col-md-12 mx-auto " style={{textAlign:'right'}}>
             <button className="btn btn-color " onClick={this.add} type="submit">
               {" "}
               إضافه موظف
@@ -380,24 +355,33 @@ class Dashboard extends Component {
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul className="navbar-nav mr-auto mt-2 mt-lg-0 p-5 ">
                 <li className="nav-item active">
-                  <a className="nav-NavLink ml-5 text-white" href="true">
+                  <NavLink
+                    to="/admin/dashboard"
+                    className="nav-NavLink ml-5 text-white"
+                  >
                     اضافه موظف{" "}
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="nav-item ">
-                  <a className="nav-NavLink ml-5 text-white" href="true">
+                  <NavLink
+                    to="/admin/empoyees"
+                    className="nav-NavLink ml-5 text-white"
+                  >
                     عرض الموظفون
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="nav-item ">
-                  <a className="nav-NavLink ml-5 text-white" href="true">
+                  <NavLink
+                    to="/admin/order"
+                    className="nav-NavLink ml-5 text-white"
+                  >
                     عرض الطلبات
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="nav-item ">
-                  <a className="nav-NavLink ml-5 text-white" href="true">
+                  <NavLink to="/logout" className="nav-NavLink ml-5 text-white">
                     تسجيل الخروج
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
                   <form className="d-flex col-10 mr-auto mt-2 ">
