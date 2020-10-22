@@ -75,7 +75,7 @@ function Preview(props) {
         <p className="mt-5 justify-content-start mr-5 mt-5 col-10">
           رأى الحسابات :
         </p>
-        <p className="mt-5 justify-content-start mr-5 mt-5 col-10">
+        <p className=" justify-content-start mr-5 mt-3 col-10">
           رأى المكتب الفنى :
         </p>
         <p className="   mx-auto col-6">قرار السيد مدير اللجنة :</p>
