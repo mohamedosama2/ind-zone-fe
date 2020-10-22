@@ -124,7 +124,7 @@ class ChangePassEmail extends React.Component {
               />
               <div className="d-flex justify-content-center">
                 <a href="/signup" className="linkStyle">
-                  Arwaa
+                  تسجيل الدخول
                 </a>
               </div>
             </div>
