@@ -425,7 +425,7 @@ class Model extends Component {
 
                     {/* <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> */}
                   </form>
-                  <a href="true" className="text-white mr-3 mt-1">
+                  <a href="/logout" className="text-white mr-3 mt-1">
                     تسجيل الخروج
                   </a>
                 </span>
