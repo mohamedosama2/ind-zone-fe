@@ -90,7 +90,6 @@ class Paper extends Component {
                     الطلبات
                   </a>
                   <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a className="dropdown-item" href="/model1">نموذج طلب</a>
                     <a className="dropdown-item" href="/model2">نموذج معاينه</a>
                     <a className="dropdown-item" href="/model3">نموذج متابعة</a>
                     <a className="dropdown-item" href="/model4">نموذج مخلفات</a>
@@ -169,6 +168,9 @@ class Paper extends Component {
   
               </div>
           </section>
+          <footer className="d-flex justify-content-center p-3">
+          حقوق النشر محفوظة لطلاب كلية الحاسبات والمعلومات جامعة قناة السويس
+          </footer>
     </div>
     )
   }

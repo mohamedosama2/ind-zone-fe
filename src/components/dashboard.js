@@ -514,6 +514,9 @@ class Dashboard extends Component {
             </div>
           </div>
         </div>
+        <footer className="d-flex justify-content-center p-3 bg-white text-dark">
+               حقوق النشر محفوظة لطلاب كلية الحاسبات والمعلومات جامعة قناة السويس
+            </footer>
       </div>
     );
   }

@@ -153,7 +153,7 @@ function Employees() {
           </div>
         </nav>
 
-        <aside className="sidebar col-2 d-none d-lg-block d-xl-block text-white">
+        <aside className="sidebar col-2 d-none d-lg-block d-xl-block text-white fixed-top ">
           <div className="row">
             <div className="info col-12 mt-2  d-block">
               <div className="row ">
@@ -222,7 +222,7 @@ function Employees() {
           </div>
         </aside>
 
-        <div className="col-10">
+        <div className="col-9 mx-auto">
           <div className="row">
             <nav className="navbar navbar-light col-12 align-items-start pt-3 px-5 d-none d-lg-block d-xl-block">
               <div className="d-flex">
@@ -281,6 +281,9 @@ function Employees() {
           </div>
         </div>
       </div>
+      <footer className="d-flex justify-content-center p-3 bg-white text-dark">
+               حقوق النشر محفوظة لطلاب كلية الحاسبات والمعلومات جامعة قناة السويس
+            </footer>
     </div>
   );
 }

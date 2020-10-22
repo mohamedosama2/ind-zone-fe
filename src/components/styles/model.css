@@ -91,6 +91,11 @@ div .finish .done {
 div .finish .done p {
   font-family: "Markazi Text", serif;
 }
+div footer {
+  background-color: #636363;
+  color: #ffffff;
+  font-family: "Markazi Text", serif;
+}
 
 div section form .btn, div .finish .done .btn {
   color: #ffffff;

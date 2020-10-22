@@ -257,10 +257,13 @@ const del=async(id)=>{
                 1 2 3 ... <a href="true">التالى</a>
               </div> */}
             </section>
-            ]
+           
           </div>
         </div>
       </div>
+      <footer className="d-flex justify-content-center p-3 bg-white text-dark">
+               حقوق النشر محفوظة لطلاب كلية الحاسبات والمعلومات جامعة قناة السويس
+            </footer>
     </div>
   );
 }

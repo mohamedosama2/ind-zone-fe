@@ -53,5 +53,10 @@ div section.paper ol li {
   font-size: 25px;
   color: black;
 }
+div footer {
+  background-color: #636363;
+  color: #ffffff;
+  font-family: "Markazi Text", serif;
+}
 
 /*# sourceMappingURL=paper.css.map */

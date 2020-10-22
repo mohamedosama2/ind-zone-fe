@@ -29,7 +29,7 @@ class Changepass extends Component {
               />
               <div className="d-flex justify-content-center">
                 <a href="/signup" className="linkStyle">
-                  Arwaa
+                  انشئ حساب
                 </a>
               </div>
             </div>
