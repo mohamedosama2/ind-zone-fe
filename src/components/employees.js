@@ -149,7 +149,7 @@ const del=async(id)=>{
           </div>
         </nav>
 
-        <aside className="sidebar col-2 d-none d-lg-block d-xl-block text-white">
+        <aside className="sidebar col-2 d-none d-lg-block d-xl-block text-white fixed-top">
           <div className="row">
             <div className="info col-12 mt-2  d-block">
               <div className="row ">
@@ -217,8 +217,8 @@ const del=async(id)=>{
           </div>
         </aside>
 
-        <div className="col-10">
-          <div className="row">
+        <div className="col-9  mx-auto">
+          <div className="row mx-auto">
             <nav className="navbar navbar-light col-12 align-items-start pt-3 px-5 d-none d-lg-block d-xl-block">
               <div className="d-flex">
                 <a className="navbar-brand " href="true">
