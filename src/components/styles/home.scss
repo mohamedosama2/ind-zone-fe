@@ -18,7 +18,7 @@ div{
                 .navbar-brand{
                   
                     img{
-                        width: 90px;
+                        width: 120px;
                     }
                   
                 }
@@ -45,13 +45,13 @@ div{
                 font-size: 25px;
                 position: absolute;
                 top:40%;
-                right: 20%;
+                right: 10%;
                 @media (max-width:1000px){
                     right: 5%;
                 }
                  .btn{
-                     width: 60%;
-                     background-color: #6DABE4;
+                     width: 30%;
+                     background-color: #57b7b6;
                      color: #ffffff;
                      font-family: 'Amiri', serif;
                      &:hover {
@@ -61,6 +61,7 @@ div{
                     }
                  }
             }
+       
         }
     }
 }

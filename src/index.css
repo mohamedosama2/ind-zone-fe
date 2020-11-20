@@ -15,7 +15,7 @@ html {
     -webkit-font-smoothing: antialiased;
 
     --scrollbarBG: #ffff;
-    --thumbBG: #7a8d9e;
+    --thumbBG: #367d7c;
    
   }
   body::-webkit-scrollbar {
@@ -99,4 +99,6 @@ html {
 		transform: scale(1.0);
 	}
 }
-
+select > option:hover{
+	background-color: #367d7c;
+}

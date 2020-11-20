@@ -3,7 +3,6 @@ import "./styles/home.css";
 import img from "../2.png";
 import "../fontawesome-free-5.9.0-web/css/all.css";
 import "../WOW-master/css/libs/animate.css";
-
 import { WOW } from "wowjs";
  import { NavLink } from "react-router-dom";
 import $ from "jquery";
@@ -102,14 +101,20 @@ function Employees() {
             </span>
           </div>
         </nav>
-        <p className="text text-center text-white ">
-          اهلا بكم
+        <div className="wow fadeInDown"  data-wow-delay="3s">     
+        <p className="text text-center text-white  " >
+         اهلا بكم فى 
+        موقع لجنه الخدمات للمستثمرين بالمنطقة الصناعية 
+        اهداء من جامعة قناة السويس
           <br />
           تقدر تقدم طلباتك الان عن طريق موقعنا
           <a className="btn  d-block mt-3 mx-auto" href="/paper">
             الاوراق المطلوبه
           </a>
         </p>
+     </div>
+   
+      
       </div>
     </div>
   );

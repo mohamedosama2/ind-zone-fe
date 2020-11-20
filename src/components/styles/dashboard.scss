@@ -4,7 +4,7 @@ div {
 
     aside {
       &.sidebar {
-        background-color: #6dabe4;
+        background-color: #57b7b6;
         height: 100vh;
         .info {
           color: #ffffff;
@@ -26,23 +26,23 @@ div {
       font-family: "Markazi Text", serif;
       height: 70px;
       &.small-screen {
-        background-color: #6dabe4;
+        background-color: #57b7b6;
       }
       &.navbar {
         // background-color: #6DABE4;
         height: 80px;
         .navbar-brand {
-          color: #6dabe4;
+          color: #57b7b6;
         }
         .navbar-nav {
-          background-color: #6dabe4;
+          background-color:#57b7b6;
           position: relative;
           z-index: 1;
           font-size: 18px;
         }
         .socail-icon {
           .text-color {
-            color: #6dabe4;
+            color: #57b7b6;
           }
         }
         img {
@@ -68,8 +68,8 @@ div {
           .icon {
             position: absolute;
             top: 10px;
-            right: 19px;
-            color: #6dabe4;
+            right: 25px;
+            color: #57b7b6;
           }
         }
         .socail-icon {
@@ -85,7 +85,7 @@ div {
                 background: #ffffff;
                 height: 20px;
                 width: 20px;
-                color: blue;
+                color: #57b7b6;
                 /* text-align: center; */
                 display: flex;
                 justify-content: center;
@@ -120,7 +120,7 @@ div {
         }
 
         .btn-color {
-          background-color: #6dabe4;
+          background-color: #57b7b6;
 
           &:hover {
             background-color: #dddddd;
@@ -152,7 +152,7 @@ div {
             border-radius: 5px;
             &:focus,
             &:hover {
-              border: 2px solid #6dabe4;
+              border: 2px solid #57b7b6;
               border-radius: 5px;
             }
           }
@@ -170,7 +170,7 @@ div {
             &:focus,
             &:hover {
               box-shadow: none;
-              border-bottom: 2px solid #6dabe4;
+              border-bottom: 2px solid #57b7b6;
               transition: all 0.25s ease-in-out;
             }
           }
@@ -181,17 +181,17 @@ div {
 }
 .card {
   .icon {
-    color: #6dabe4;
+    color: #57b7b6;
   }
 }
 
     p{
         &.text-color{
-            color: #6DABE4;
+            color: #57b7b6;
         }
     }
 .icon{
-    color: #6DABE4;
+    color: #57b7b6;
 }
 footer{
   background-color: #ffffff;

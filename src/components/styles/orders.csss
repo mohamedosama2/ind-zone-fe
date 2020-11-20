@@ -27,17 +27,4 @@
   }
 }
 
-.page-num {
-  z-index: 3;
-  color: #fff;
-  background-color: #367d7c;
-  border-color: #367d7c;
-  border-radius: 5px;
-  font-size: 18px;
-}
-.page-num:hover {
-  background-color: #F8F8F8;
-  color: #367d7c;
-}
-
-/*# sourceMappingURL=orders.css.map */
+/*# sourceMappingURL=orders.csss.map */

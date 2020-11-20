@@ -10,7 +10,7 @@ div.home-bg nav {
   background-color: transparent;
 }
 div.home-bg nav.navbar-light .navbar-brand img {
-  width: 90px;
+  width: 120px;
 }
 div.home-bg nav.navbar-light .navbar-nav .nav-link {
   color: white;
@@ -30,7 +30,7 @@ div.home-bg p.text {
   font-size: 25px;
   position: absolute;
   top: 40%;
-  right: 20%;
+  right: 10%;
 }
 @media (max-width: 1000px) {
   div.home-bg p.text {
@@ -38,8 +38,8 @@ div.home-bg p.text {
   }
 }
 div.home-bg p.text .btn {
-  width: 60%;
-  background-color: #6DABE4;
+  width: 30%;
+  background-color: #57b7b6;
   color: #ffffff;
   font-family: "Amiri", serif;
 }

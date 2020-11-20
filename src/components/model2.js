@@ -85,32 +85,32 @@ class Model extends Component {
   render() {
     $(document).ready(function () {
       $("#click").click(function () {
-        $("#search").addClass("animated fadeInLeft").show();
+        $("#search").addClass("animated fadeInLeft").toggle();
       });
       $(".finish").hide();
 
       $(".navbar-collapse ").css({
-        "background-color": "#636363",
+        "background-color": "#57B7B6",
       });
       var homeNAV = $("#home-nav");
       var offset = homeNAV.offset();
       $("#nav").css({
-        "background-color": "#636363",
+        "background-color": "#57B7B6",
       });
       $(window).on("scroll", function () {
         if ($(window).scrollTop() > offset.top) {
           $("#nav").css({
-            "background-color": "#000000",
+            "background-color": "#367d7c",
           });
           $(".navbar-collapse ").css({
-            "background-color": "#000000",
+            "background-color": "#367d7c",
           });
         } else {
           $("#nav").css({
-            "background-color": "#636363",
+            "background-color": "#57B7B6",
           });
           $(".navbar-collapse").css({
-            "background-color": "#636363",
+            "background-color": "#57B7B6",
           });
         }
       });
@@ -261,9 +261,9 @@ class Model extends Component {
               </div>
             </nav>
           </div>
-          <section className="text-center">
+          <section className="text-center ">
             {this.state.error}
-            <h2>نموذج معاينه</h2>
+            <h2 className="">نموذج معاينه</h2>
 
             {form}
           </section>
@@ -286,7 +286,7 @@ class Model extends Component {
             </p>
           </div>
         </div>
-        <footer className="d-flex justify-content-center p-3">
+        <footer className="d-flex justify-content-center p-3 mb-0">
                حقوق النشر محفوظة لطلاب كلية الحاسبات والمعلومات جامعة قناة السويس
             </footer>
       </div>

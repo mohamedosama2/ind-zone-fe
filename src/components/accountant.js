@@ -82,7 +82,7 @@ function accountant() {
                   Dina@gmail.com
                 </p>
                 <NavLink
-                  activeStyle={{ background: "#64b5f6", width: "100%" }}
+                  activeStyle={{ background: "#367d7c", width: "100%" }}
                   to="/logout"
                   className="  d-flex justify-content-start pr-5 pt-2 pb-2"
                   exact

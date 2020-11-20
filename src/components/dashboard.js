@@ -403,7 +403,7 @@ class Dashboard extends Component {
             </div>
           </nav>
 
-          <aside className="sidebar col-2 d-none d-lg-block d-xl-block text-white">
+          <aside className="sidebar col-2 d-none d-lg-block d-xl-block text-white fixed-top">
             <div className="row">
               <div className="info col-12 mt-2  d-block">
                 <div className="row ">
@@ -420,7 +420,7 @@ class Dashboard extends Component {
                   </p>
                   <NavLink
                     activeStyle={{
-                      background: "#64b5f6",
+                      background: "#367d7c",
                       width: "100%",
                     }}
                     to="/admin/dashboard"
@@ -471,9 +471,9 @@ class Dashboard extends Component {
             </div>
           </aside>
 
-          <div className="col-10">
+          <div className="col-9 mx-auto p-5">
             <div className="row">
-              <nav className="navbar navbar-light col-12 align-items-start pt-3 px-5 d-none d-lg-block d-xl-block">
+              <nav className="navbar navbar-light col-12 mx-auto align-items-start pt-3 px-5 d-none d-lg-block d-xl-block">
                 <div className="d-flex">
                   <a className="navbar-brand " href="true">
                     لوحه التحكم

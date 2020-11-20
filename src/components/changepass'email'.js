@@ -1,6 +1,7 @@
 import React, { createRef } from "react";
 import "./styles/authentication.css";
-import loginimg from "./images/login.jpg";
+import img from "./images/login.png";
+import logo from "../2.png";
 import "../fontawesome-free-5.9.0-web/css/all.css";
 import "../WOW-master/css/libs/animate.css";
 import { updatedObject, checkValidity } from "../shared/shared";
@@ -112,27 +113,30 @@ class ChangePassEmail extends React.Component {
       <div>
         <section className=" container loginsection  mt-5 ">
           <div className="row  ">
-            <div
-              className="col-lg-6 col-md-12 mb-5 wow fadeInRight order-lg-1 order-md-2 "
+          <div
+              className="col-lg-6 pt-5 pl-5 col-md-12 mb-5 wow fadeInRight order-lg-1 order-md-2 bg-white "
               data-wow-delay="1s"
             >
+            
               <img
-                src={loginimg}
+                src={img}
                 alt="loginimg"
                 title="loginimg"
-                className="img-fluid"
+                className="img-fluid ml-5"
               />
-              <div className="d-flex justify-content-center">
-                <a href="/signup" className="linkStyle">
-                  انشئ حساب
+              <div className="d-flex justify-content-center mt-5 text-center">
+                <a href="#" className="linkStyle">
+                موقع لجنه الخدمات للمستثمرين بالمنطقة الصناعية 
+اهداء من جامعة قناة السويس
                 </a>
               </div>
             </div>
 
             <div
-              className="col-lg-6 col-md-12 mb-5 mt-5 order-lg-2 order-md-1 wow fadeInLeft"
+              className="col-lg-6 col-md-12 mb-5 order-lg-2 order-md-1 wow fadeInLeft form-color"
               data-wow-delay="1s"
             >
+                        <img src={logo} alt="logo" className="size d-flex justify-content-end mb-5"></img>
               <div
                 class="alert alert-danger m-auto text-center"
                 role="alert"

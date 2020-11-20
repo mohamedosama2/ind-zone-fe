@@ -3,7 +3,7 @@ div nav {
   height: 80px;
 }
 div nav.navbar-light .navbar-brand img {
-  width: 90px;
+  width: 120px;
 }
 div nav.navbar-light .navbar-nav {
   position: relative;
@@ -36,9 +36,11 @@ div section {
   margin: 200px 0;
 }
 div section h2 {
-  color: #6DABE4;
+  color: #367d7c;
   font-family: "Amiri", serif;
   text-align: center;
+  margin-right: 4.3em;
+  margin-bottom: 1em;
 }
 div section form .text {
   font-family: "Amiri", serif;
@@ -54,7 +56,7 @@ div section form .form-group .size {
   border-radius: 5px;
 }
 div section form .form-group .size:focus, div section form .form-group .size:hover {
-  border: 2px solid #6DABE4;
+  border: 2px solid #367d7c;
   border-radius: 5px;
 }
 div section form .form-group .form-control {
@@ -71,7 +73,7 @@ div section form .form-group .form-control {
 }
 div section form .form-group .form-control:focus, div section form .form-group .form-control:hover {
   box-shadow: none;
-  border-bottom: 2px solid #6DABE4;
+  border-bottom: 2px solid #367d7c;
   transition: all 0.25s ease-in-out;
 }
 div .finish {
@@ -92,7 +94,7 @@ div .finish .done p {
   font-family: "Markazi Text", serif;
 }
 div footer {
-  background-color: #636363;
+  background-color: #57B7B6;
   color: #ffffff;
   font-family: "Markazi Text", serif;
 }
@@ -103,7 +105,7 @@ div section form .btn, div .finish .done .btn {
 }
 
 div section form .btn-color, div .finish .done .btn-color {
-  background-color: #6DABE4;
+  background-color: #367d7c;
 }
 div section form .btn-color:hover, div .finish .done .btn-color:hover {
   background-color: #dddddd;

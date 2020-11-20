@@ -171,7 +171,7 @@ function Employees() {
                 </p>
                 <NavLink
                   activeStyle={{
-                    background: "#64b5f6",
+                    background: "#367d7c",
                     width: "100%",
                   }}
                   to="/admin/dashboard"
@@ -185,7 +185,7 @@ function Employees() {
                 </NavLink>
 
                 <NavLink
-                  activeStyle={{ background: "#64b5f6", width: "100%" }}
+                  activeStyle={{ background: "#367d7c", width: "100%" }}
                   to="/admin/empoyees"
                   className="  d-flex justify-content-start pr-5 pt-2 pb-2 text-white"
                   exact
@@ -196,7 +196,7 @@ function Employees() {
                   عرض الموظفون
                 </NavLink>
                 <NavLink
-                  activeStyle={{ background: "#64b5f6", width: "100%" }}
+                  activeStyle={{ background: "#367d7c", width: "100%" }}
                   to="/admin/order"
                   className="  d-flex justify-content-start pr-5 pt-2 pb-2 text-white"
                   exact
@@ -207,7 +207,7 @@ function Employees() {
                   عرض الطلبات
                 </NavLink>
                 <NavLink
-                  activeStyle={{ background: "#64b5f6", width: "100%" }}
+                  activeStyle={{ background: "#367d7c", width: "100%" }}
                   to="/logout"
                   className="  d-flex justify-content-start pr-5 pt-2 pb-2 text-white"
                   exact
@@ -222,7 +222,7 @@ function Employees() {
           </div>
         </aside>
 
-        <div className="col-9 mx-auto">
+        <div className="col-9 mx-auto p-5">
           <div className="row">
             <nav className="navbar navbar-light col-12 align-items-start pt-3 px-5 d-none d-lg-block d-xl-block">
               <div className="d-flex">
@@ -268,7 +268,7 @@ function Employees() {
                         onClick={hr}
                         key={i}
                       >
-                        <a className="page-link" href="true">
+                        <a className="page-num p-2" href="true">
                           {i}
                           
                         </a>

@@ -3,7 +3,7 @@ div nav {
   height: 80px;
 }
 div nav.navbar-light .navbar-brand img {
-  width: 90px;
+  width: 120px;
 }
 div nav.navbar-light .navbar-nav {
   position: relative;
@@ -54,7 +54,7 @@ div section.paper ol li {
   color: black;
 }
 div footer {
-  background-color: #636363;
+  background-color: #57B7B6;
   color: #ffffff;
   font-family: "Markazi Text", serif;
 }

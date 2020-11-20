@@ -85,7 +85,7 @@ const del=async(id)=>{
   }, 100);
   return (
     <div className="container-fluid size">
-      <div className="row">
+      <div className="row mb-5">
         {/* Nav in small screen */}
         <nav className="navbar small-screen navbar-light col-12 text-white align-items-start  d-xl-none d-lg-none d-md-block d-sm-block">
           <div className="d-flex">
@@ -166,7 +166,7 @@ const del=async(id)=>{
                 </p>
                 <NavLink
                   activeStyle={{
-                    background: "#64b5f6",
+                    background: "#367d7c",
                     width: "100%",
                   }}
                   to="/admin/dashboard"
@@ -180,7 +180,7 @@ const del=async(id)=>{
                 </NavLink>
 
                 <NavLink
-                  activeStyle={{ background: "#64b5f6", width: "100%" }}
+                  activeStyle={{ background: "#367d7c", width: "100%" }}
                   to="/admin/empoyees"
                   className="  d-flex justify-content-start pr-5 pt-2 pb-2 text-white"
                   exact
@@ -217,7 +217,7 @@ const del=async(id)=>{
           </div>
         </aside>
 
-        <div className="col-9  mx-auto">
+        <div className="col-9 mx-auto p-5 ">
           <div className="row mx-auto">
             <nav className="navbar navbar-light col-12 align-items-start pt-3 px-5 d-none d-lg-block d-xl-block">
               <div className="d-flex">
@@ -251,7 +251,7 @@ const del=async(id)=>{
                 </div>
               </div>
             </nav>
-            <section className="col-12 mt-3">
+            <section className="col-12 mt-3 mr-5">
               {body}
              {/*  <div className="number d-flex justify-content-center mt-3 ">
                 1 2 3 ... <a href="true">التالى</a>
@@ -261,7 +261,7 @@ const del=async(id)=>{
           </div>
         </div>
       </div>
-      <footer className="d-flex justify-content-center p-3 bg-white text-dark">
+      <footer className="d-flex justify-content-center  p-3  bg-white text-dark">
                حقوق النشر محفوظة لطلاب كلية الحاسبات والمعلومات جامعة قناة السويس
             </footer>
     </div>

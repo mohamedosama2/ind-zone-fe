@@ -1,6 +1,7 @@
 import React, { Component, createRef } from "react";
 import "./styles/authentication.css";
-import loginimg from "./images/login.jpg";
+import img from "./images/login.png";
+import logo from "../2.png";
 import "../fontawesome-free-5.9.0-web/css/all.css";
 import "../WOW-master/css/libs/animate.css";
 import Input from "../components/Input/Input";
@@ -148,6 +149,7 @@ let form=null
       ref={this.formRef}
     >
       {error}
+      <img src={logo} alt="logo" className="size d-flex justify-content-end mb-5"></img>
 
       <div className="text d-flex justify-content-start mt-5 mr-lg-5 mr-md-0">
         <p> أنشاء حساب</p>
@@ -223,15 +225,18 @@ let form=null
         />
       </div>
 
-      <div className="d-flex justify-content-center mt-3  mr-5">
+      <div className="d-flex justify-content-center mt-3  ">
         <button href="/" className="btn btn-color ">
           {" "}
           تسجيل الحساب
         </button>
-        {/* <a href="/codeofsignup" className="btn btn-color " >
-          تسجيل الحساب
-        </a> */}
+       
       </div>
+      <div className=" text-center mt-5 mb-5">
+                <a href="/" className="linkStyle text-white">
+                 تسجيل الدخول
+                </a>
+              </div>
     </form>
     )
       }
@@ -250,25 +255,27 @@ let form=null
       <div>
         <section className=" container loginsection  mt-5 ">
           <div className="row">
-            <div
-              className="col-lg-6 col-md-12 mb-5 wow fadeInRight order-lg-1 order-md-2 "
+          <div
+              className="col-lg-6 pt-5 pl-5 col-md-12 mb-5 wow fadeInRight order-lg-1 order-md-2 bg-white "
               data-wow-delay="1s"
             >
+            
               <img
-                src={loginimg}
+                src={img}
                 alt="loginimg"
                 title="loginimg"
-                className="img-fluid"
+                className="img-fluid ml-5"
               />
-              <div className=" text-center">
-                <a href="/" className="linkStyle">
-                  تسجيل الدخول
+              <div className="d-flex justify-content-center mt-5 text-center  ">
+                <a href="#" className="linkStyle">
+                موقع لجنه الخدمات للمستثمرين بالمنطقة الصناعية 
+اهداء من جامعة قناة السويس
                 </a>
               </div>
             </div>
 
             <div
-              className="col-lg-6 col-md-12 mb-5 mt-5 order-lg-2 order-md-1 wow fadeInLeft text-center "
+              className="col-lg-6 col-md-12 mb-5  order-lg-2 order-md-1 wow fadeInLeft text-center  form-color "
               data-wow-delay="1s"
             >
               <div

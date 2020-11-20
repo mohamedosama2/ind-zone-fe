@@ -17,7 +17,7 @@
         border: 1px solid #000000;
     }
     .icon{
-        color:  #6DABE4;
+        color:  #367d7c;
         font-size: 20px;
         cursor: pointer;
         @media print {
@@ -27,3 +27,17 @@
           }
     }
 }
+
+        .page-num{
+            z-index: 3;
+            color: #fff;
+            background-color: #367d7c;
+            border-color: #367d7c;
+            border-radius: 5px;
+            font-size: 18px;
+            &:hover{
+                background-color:  #F8F8F8;
+                color: #367d7c;
+            }
+        }
+ 
