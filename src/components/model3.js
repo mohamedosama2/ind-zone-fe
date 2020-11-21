@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./styles/model.css";
 import img from "../2.png";
+import {connect} from 'react-redux'
+
 import done from "./images/done.jpg";
 import "../fontawesome-free-5.9.0-web/css/all.css";
 import "../WOW-master/css/libs/animate.css";
@@ -411,7 +413,7 @@ class Model extends Component {
               <br />
               عن طريق ايميلك
               <br />
-              dina@gmail <br />
+              {this.props.email} <br />
               <a href="/user" className="btn btn-color">
                 {" "}
                 الصفحه الرئيسيه
@@ -426,4 +428,11 @@ class Model extends Component {
     );
   }
 }
-export default Model;
+const mapStateToProps = (state) => {
+  return {
+    email:state.auth.email
+  };
+};
+
+
+export default connect(mapStateToProps)(Model);

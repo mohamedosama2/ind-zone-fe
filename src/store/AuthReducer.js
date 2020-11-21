@@ -6,7 +6,10 @@ const initState={
     token:null,
     error:null,
     signUp:false,
-    role:null
+    role:null,
+    username:null,
+    photo:null,
+    email:null
 };
 
 const Reducer =(state=initState,action)=>{
@@ -23,7 +26,10 @@ const Reducer =(state=initState,action)=>{
                 token:action.token,
                 userId:action.userId,
                 loading:false,
-                role:action.role
+                role:action.role,
+                username:action.username,
+                photo:action.photo,
+                email:action.email
             };
         case actionTypes.AUTH_FAIL:
             return{
@@ -36,7 +42,10 @@ const Reducer =(state=initState,action)=>{
                 ...state,
                 token:null,
                 userId:null,
-                role:null
+                role:null,
+                photo:null,
+                username:null,
+                email:null
             }            
         default:
             return state;

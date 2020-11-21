@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./styles/dashboard.css";
-import img from "./images/main-banner.jpg";
+import {connect} from 'react-redux'
 import "../fontawesome-free-5.9.0-web/css/all.css";
 import "../WOW-master/css/libs/animate.css";
 import Spinner from "./Spiner/Spiner";
@@ -336,7 +336,7 @@ class Dashboard extends Component {
             <div className="d-flex">
               <div className="row">
                 <div className="img col-md-3  mt-2  d-block">
-                  <img alt="admin-img" src={img} />
+                  <img alt="admin-img" src={this.props.photo} />
                   <p className="">دينا سمير</p>
                 </div>
               </div>
@@ -408,15 +408,15 @@ class Dashboard extends Component {
               <div className="info col-12 mt-2  d-block">
                 <div className="row ">
                   <img
-                    alt="dina"
-                    src={img}
+                    alt="imag2"
+                    src={this.props.photo}
                     className=" img-fluid  mt-5 mr-5"
                   ></img>
                   <p className=" mt-3 col-10 d-flex justify-content-center">
-                    دينا سمير
+                  {this.props.username}
                   </p>
                   <p className="mt-1 col-10 d-flex justify-content-center">
-                    Dina@gmail.com
+                  {this.props.email}
                   </p>
                   <NavLink
                     activeStyle={{
@@ -521,4 +521,14 @@ class Dashboard extends Component {
     );
   }
 }
-export default Dashboard;
+const mapStateToProps = (state) => {
+  return {
+    username:state.auth.username,
+    photo:state.auth.photo,
+    email:state.auth.email
+  };
+};
+
+
+
+export default connect(mapStateToProps)(Dashboard);

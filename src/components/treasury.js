@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/dashboard.css";
-import img from "./images/main-banner.jpg";
+import {connect} from 'react-redux'
 import "../fontawesome-free-5.9.0-web/css/all.css";
 import "../WOW-master/css/libs/animate.css";
 import { WOW } from "wowjs";
@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 const wow = new WOW();
 wow.init();
 
-function treasury() {
+function Treasury(props) {
   /* if(employes.length>9)setL('100%')
    */
   var a = document.querySelector(".spinner-wrapper");
@@ -23,8 +23,8 @@ function treasury() {
           <div className="d-flex">
             <div className="row">
               <div className="img col-md-3  mt-2  d-block">
-                <img alt="AAA" src={img} />
-                <p className="">دينا سمير</p>
+                <img alt={props.username} src={props.photo} />
+                <p className="">{props.username}</p>
               </div>
             </div>
             <a className="navbar-brand text-white mt-1 ml-5" href>
@@ -71,15 +71,15 @@ function treasury() {
             <div className="info col-12 mt-2  d-block">
               <div className="row ">
                 <img
-                  alt="AAA"
-                  src={img}
+                  alt={props.username}
+                  src={props.photo}
                   className=" img-fluid  mt-5 mr-5"
                 ></img>
                 <p className=" mt-3 col-10 d-flex justify-content-center">
-                  دينا سمير
+                {props.username}
                 </p>
                 <p className="mt-1 col-10 d-flex justify-content-center">
-                  Dina@gmail.com
+                {props.email}
                 </p>
                 <NavLink
                   activeStyle={{ background: "#64b5f6", width: "100%" }}
@@ -139,4 +139,15 @@ function treasury() {
   );
 }
 
-export default treasury;
+
+const mapStateToProps = (state) => {
+  return {
+    username:state.auth.username,
+    photo:state.auth.photo,
+    email:state.auth.email
+  };
+};
+
+
+
+export default connect(mapStateToProps)(Treasury);

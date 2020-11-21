@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./styles/dashboard.css";
-import img from "./images/main-banner.jpg";
+import {connect} from 'react-redux'
 import "../fontawesome-free-5.9.0-web/css/all.css";
 import "../WOW-master/css/libs/animate.css";
 import { WOW } from "wowjs";
@@ -10,7 +10,7 @@ import Spiner from "./Spiner/Spiner";
 const wow = new WOW();
 wow.init();
 
-function Employees() {
+function Employees(props) {
   const [employes, setEmployees] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -91,7 +91,7 @@ const del=async(id)=>{
           <div className="d-flex">
             <div className="row">
               <div className="img col-md-3  mt-2  d-block">
-                <img alt="admin-img" src={img} />
+                <img alt={props.username} src={props.photo} />
                 <p className="">دينا سمير</p>
               </div>
             </div>
@@ -154,15 +154,15 @@ const del=async(id)=>{
             <div className="info col-12 mt-2  d-block">
               <div className="row ">
                 <img
-                  alt="dina"
-                  src={img}
+                  alt={props.username}
+                  src={props.photo}
                   className=" img-fluid  mt-5 mr-5"
                 ></img>
                 <p className=" mt-3 col-10 d-flex justify-content-center">
-                  دينا سمير
+                {props.username}
                 </p>
                 <p className="mt-1 col-10 d-flex justify-content-center">
-                  Dina@gmail.com
+                {props.email}
                 </p>
                 <NavLink
                   activeStyle={{
@@ -268,4 +268,13 @@ const del=async(id)=>{
   );
 }
 
-export default Employees;
+const mapStateToProps = (state) => {
+  return {
+    username:state.auth.username,
+    photo:state.auth.photo,
+    email:state.auth.email
+  };
+};
+
+
+export default connect(mapStateToProps)(Employees);

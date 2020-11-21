@@ -8,6 +8,7 @@ import Spiner from "./Spiner/Spiner";
 import { WOW } from "wowjs";
 import $ from "jquery";
 import Axios from "../axios";
+import {connect} from 'react-redux'
 
 const wow = new WOW();
 wow.init();
@@ -443,7 +444,7 @@ class Model extends Component {
               <br />
               عن طريق ايميلك
               <br />
-              dina@gmail <br />
+              {this.props.email} <br />
               <a href="/user" className="btn btn-color">
                 الصفحه الرئيسيه
               </a>
@@ -457,4 +458,12 @@ class Model extends Component {
     );
   }
 }
-export default Model;
+
+const mapStateToProps = (state) => {
+  return {
+    email:state.auth.email
+  };
+};
+
+
+export default connect(mapStateToProps)(Model);

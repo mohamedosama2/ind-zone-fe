@@ -7,10 +7,11 @@ import { WOW } from "wowjs";
 import { NavLink } from "react-router-dom";
 import Axios from "../axios";
 import Spiner from "./Spiner/Spiner";
+import {connect} from 'react-redux'
 const wow = new WOW();
 wow.init();
 
-function Employees() {
+function Employees(props) {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState(1);
   const [pages, setPages] = useState(3);
@@ -95,8 +96,8 @@ function Employees() {
           <div className="d-flex">
             <div className="row">
               <div className="img col-md-3  mt-2  d-block">
-                <img src={img} alt="email-img" title="email-img" />
-                <p className="">دينا سمير</p>
+                <img src={props.photo} alt={props.username} title="email-img" />
+                <p className="">{props.username}</p>
               </div>
             </div>
             <a className="navbar-brand text-white mt-1 ml-5" href="true">
@@ -158,16 +159,16 @@ function Employees() {
             <div className="info col-12 mt-2  d-block">
               <div className="row ">
                 <img
-                  src={img}
+                  src={props.photo}
                   className=" img-fluid  mt-5 mr-5"
-                  alt="email-img"
+                  alt={props.username}
                   title="email-img"
                 />
                 <p className=" mt-3 col-10 d-flex justify-content-center">
-                  دينا سمير
+                {props.username}
                 </p>
                 <p className="mt-1 col-10 d-flex justify-content-center">
-                  Dina@gmail.com
+                {props.email}
                 </p>
                 <NavLink
                   activeStyle={{
@@ -288,4 +289,12 @@ function Employees() {
   );
 }
 
-export default Employees;
+const mapStateToProps = (state) => {
+  return {
+    username:state.auth.username,
+    photo:state.auth.photo,
+    email:state.auth.email
+  };
+};
+
+export default connect(mapStateToProps)(Employees);

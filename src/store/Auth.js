@@ -8,12 +8,15 @@ export const authStart = () => {
   };
 };
 
-export const authSuccess = (token, userId, role) => {
+export const authSuccess = (token, userId, role, username, photo, email) => {
   return {
     type: actionTypes.AUTH_SUCCESS,
     token,
     userId,
     role,
+    username,
+    photo,
+    email,
   };
 };
 
@@ -52,7 +55,14 @@ export const authSignUp = (username, email, password, phone) => {
           /*  localStorage.setItem("token", res.data.token);
           localStorage.setItem("userId", res.data.user.id); */
           dispatch(
-            authSuccess(res.data.token, res.data.user.id, res.data.user.role)
+            authSuccess(
+              res.data.token,
+              res.data.user.id,
+              res.data.user.role,
+              res.data.user.username,
+              res.data.user.photo,
+              res.data.user.email
+            )
           );
         }
       }
@@ -86,8 +96,16 @@ export const authSignIn = (email, password) => {
         } else {
           localStorage.setItem("token", data.token);
           localStorage.setItem("userId", data.user.id);
-          console.log(res.data);
-          dispatch(authSuccess(data.token, data.user.id, res.data.user.role));
+          dispatch(
+            authSuccess(
+              data.token,
+              data.user.id,
+              res.data.user.role,
+              res.data.user.username,
+              res.data.user.photo,
+              res.data.user.email
+            )
+          );
         } /*  */
       }
     } catch (err) {
@@ -119,7 +137,16 @@ export const authCheckState = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-        dispatch(authSuccess(token, userId, res.data.role));
+        dispatch(
+          authSuccess(
+            token,
+            userId,
+            res.data.role,
+            res.data.username,
+            res.data.photo,
+            res.data.email
+          )
+        );
       }
     } catch (err) {
       console.log(err.response);
