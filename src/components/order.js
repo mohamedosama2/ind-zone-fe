@@ -66,9 +66,9 @@ function Employees(props) {
             key={p.createdAt}
           >
             <div className="card-body col-lg-12      ">
-              <div className="row px-5">
-                <p> {p.customer.username}</p>
-                <p className="text-color mr-5 col-lg-5 col-md-10">{p.type}</p>
+              <div className="row px-5 text-center">
+                <p className="text-center col-lg-4 col-md-10 "> {p.customer.username}</p>
+                <p className="text-color  col-lg-5 col-md-10 text-center">{p.type}</p>
                 <a
                   className="icon mr-5"
                   href={`/${p.type}/${p.id}`}
@@ -223,7 +223,7 @@ function Employees(props) {
           </div>
         </aside>
 
-        <div className="col-9 mx-auto p-5">
+        <div className="col-9 mx-auto p-xl-5 p-md-0 p-sm-0">
           <div className="row">
             <nav className="navbar navbar-light col-12 align-items-start pt-3 px-5 d-none d-lg-block d-xl-block">
               <div className="d-flex">
@@ -269,7 +269,7 @@ function Employees(props) {
                         onClick={hr}
                         key={i}
                       >
-                        <a className="page-num p-2" href="true">
+                        <a className="page-num p-2 ml-2" href="true">
                           {i}
                           
                         </a>
@@ -282,7 +282,7 @@ function Employees(props) {
           </div>
         </div>
       </div>
-      <footer className="d-flex justify-content-center p-3 bg-white text-dark">
+      <footer className="d-flex justify-content-center p-3 text-center bg-white text-dark">
                حقوق النشر محفوظة لطلاب كلية الحاسبات والمعلومات جامعة قناة السويس
             </footer>
     </div>

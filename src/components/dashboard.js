@@ -471,7 +471,7 @@ class Dashboard extends Component {
             </div>
           </aside>
 
-          <div className="col-9 mx-auto p-5">
+          <div className="col-9 mx-auto p-xl-5 p-md-0 p-sm-0">
             <div className="row">
               <nav className="navbar navbar-light col-12 mx-auto align-items-start pt-3 px-5 d-none d-lg-block d-xl-block">
                 <div className="d-flex">
@@ -507,14 +507,14 @@ class Dashboard extends Component {
               </nav>
 
               <section className="add col-12 mt-4 p-5">
-                <h4>إضافة موظف</h4>
+                <h4 className="mr-5">إضافة موظف</h4>
                 {this.state.error}
                 {form}
               </section>
             </div>
           </div>
         </div>
-        <footer className="d-flex justify-content-center p-3 bg-white text-dark">
+        <footer className="d-flex justify-content-center text-center p-3 bg-white text-dark">
                حقوق النشر محفوظة لطلاب كلية الحاسبات والمعلومات جامعة قناة السويس
             </footer>
       </div>

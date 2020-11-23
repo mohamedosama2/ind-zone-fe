@@ -150,7 +150,7 @@ class Paper extends Component {
   
               </div>
           </section>
-          <footer className="d-flex justify-content-center p-3">
+          <footer className="d-flex justify-content-center p-3 text-center">
           حقوق النشر محفوظة لطلاب كلية الحاسبات والمعلومات جامعة قناة السويس
           </footer>
     </div>

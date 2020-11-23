@@ -288,7 +288,7 @@ class Model extends Component {
             </p>
           </div>
         </div>
-        <footer className="d-flex justify-content-center p-3 mb-0">
+        <footer className="d-flex justify-content-center p-3 mb-0 text-center">
                حقوق النشر محفوظة لطلاب كلية الحاسبات والمعلومات جامعة قناة السويس
             </footer>
       </div>

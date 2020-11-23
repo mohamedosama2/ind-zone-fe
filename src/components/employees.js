@@ -54,19 +54,19 @@ const del=async(id)=>{
 
   let body = employes.map((em) => {
     return (
-      <div className="mx-auto" key={em.id}>
-        <div className="card  mb-3" key={em.id}>
-          <div className="card-body col-lg-12   col-md-6  ">
+      <div className="mx-auto pl-5" key={em.id}>
+        <div className="card  mb-3 " key={em.id}>
+          <div className="card-body col-lg-12   col-md-6 ">
             <div className="row">
-              <h5 className="card-title col-lg-3 col-md-6">{em.username}</h5>
-              <p className="card-text col-lg-2 col-md-6">{em.role}</p>
+              <h5 className="card-title col-lg-3 col-md-6 text-center">{em.username}</h5>
+              <p className="card-text col-lg-2 col-md-6 text-center">{em.role}</p>
               {/* </div> */}
               {/* <div className="card-body p- col-lg-8  col-sm-12"> */}
-              <a href="true" className="card-link col-lg-3 col-md-6 text-dark">
+              <a href="true" className="card-link col-lg-3 col-md-6 text-dark text-center">
                 {em.email}
               </a>
-              <p className="card-link col-lg-2 col-md-6">{em.phone}</p>
-              <span className="icon" style={{cursor:'pointer'}} onClick={()=>del(em.id)} >
+              <p className="card-link col-lg-2 col-md-6 text-center">{em.phone}</p>
+              <span className="icon d-flex justify-content-center" style={{cursor:'pointer'}} onClick={()=>del(em.id)} >
                 <i className="fas fa-trash"></i>
               </span>
             </div>
@@ -217,7 +217,7 @@ const del=async(id)=>{
           </div>
         </aside>
 
-        <div className="col-9 mx-auto p-5 ">
+        <div className="col-9 mx-auto p-xl-5 p-md-0 p-sm-0 ">
           <div className="row mx-auto">
             <nav className="navbar navbar-light col-12 align-items-start pt-3 px-5 d-none d-lg-block d-xl-block">
               <div className="d-flex">
@@ -261,7 +261,7 @@ const del=async(id)=>{
           </div>
         </div>
       </div>
-      <footer className="d-flex justify-content-center  p-3  bg-white text-dark">
+      <footer className="d-flex justify-content-center text-center  p-3  bg-white text-dark">
                حقوق النشر محفوظة لطلاب كلية الحاسبات والمعلومات جامعة قناة السويس
             </footer>
     </div>
